@@ -1,12 +1,27 @@
 <div class="btn-group">
-  <a class="btn btn-primary" href="#">Logged In: {$ctrl.username}</a>
-  <a class="btn btn-primary dropdown-toggle" aria-expanded="false" href="#" data-toggle="dropdown"><span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <li><a href="#">Go to profile</a></li>
-    <li><a href="#">Show followers</a></li>
-    <li><a href="#">Show people following</a></li>
+  <a class="btn btn-primary" float="right"  href="#">Logged In: {{$ctrl.username}}</a>
+  <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
+  <ul class="dropdown-menu" float = "right">
+    <li><a ui-sref="profile">Go to profile</a></li>
+    <li><a ui-sref="feedState">Show followers</a></li>
+    <li><a ui-sref="feedState">Show people following</a></li>
     <li class="divider"></li>
     <li><a href="#">Log out</a></li>
   </ul>
   <ui-view></ui-view>
 </div>
+<table class="table table-striped table-hover" table style = "margin: auto " table style="align:center"
+              table style= "background-color: rgba(255,255,255,.1)">
+<thead>
+  <tr>
+    <th>User</th>
+    <th>Tweet</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>{username}</td>
+    <td>{tweet}</td>
+  </tr>
+</tbody>
+</table>
