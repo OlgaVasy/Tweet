@@ -1,1 +1,1 @@
-angular.module('tweetModule', [])
+angular.module('tweetModule', ['ui.router'])
