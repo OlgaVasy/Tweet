@@ -2,14 +2,11 @@ angular.module('tweetModule')
 
 .component('registrationComponent', {
 
-  templateUrl: 'TweettApp/registration/registration.template.html',
-
-  bindings: {
-
-    'user': '>',
-
-    'show': '='
-
-  }
+  templateUrl: 'TweetApp/registration/registration.template.html',
+  controller: 'registrationController',
+  controllerAs: 'registrationCtrl'
+  // bindings: {
+  //   user: "="
+  // }
 
 })
