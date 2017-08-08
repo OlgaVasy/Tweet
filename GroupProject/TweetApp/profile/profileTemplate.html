@@ -1,17 +1,20 @@
   <div class="profileComponent">
-  <div class="firstName">
-    <label class="firstName">First Name: </label>
-  </div>
-  <div class="lastName">
-    <label class="lastName">Last Name: </label>
+    <div class = "photo">
+    <img src= "/image/defaultPhoto.jpg" alt="default picture" style="width:225px;height:225px;">
 
-  </div>
+    </div>
+    <label class="name" > {{$ctrl.profile.firstName + ctrl.profile.lastName}}</label>
+    <div class="contactInfo">
+      <label class="contacts">Contact Information: </label>
+    </div>
   <div class="userEmail">
     <label class="email">Email: </label>
+    <label class="email" >{{$ctrl.profile.email}} </label>
   </div>
 
   <div class="userPhone">
     <label class="phoneNumber">Phone Number: </label>
+    <label class="phoneNumber" > {{$ctrl.profile.phone}} </label>
 
   </div>
 </div>

@@ -42,7 +42,11 @@ body {
   font-size: 2em;
   font-weight: bolder;
   margin-top: -20vw;
-  color: WHITE; 
+  color: WHITE;
+}
+.profileComponent{
+  margin-left: 5vw;
+  margin-top: 5vh;
 }
 
 html {
