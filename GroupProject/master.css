@@ -12,27 +12,43 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+body {
+  margin: 0;
+  background-image: url("image/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
 .profileElement{
   display: flex;
 }
 .headline {
   height: 55vh;
   width: 100vw;
-  padding-top: 30vh;
+  padding-top: 0vh;
   font-size: 8em;
   font-weight: bolder;
-  text-align: center;
+  font-style: italic;
+  margin-left: 25vw;
   color: WHITE;
   text-shadow: 5px 5px 4px BLACK;
+}
+.beLoggedIn{
+  margin-left: 75vw;
+  font-size: 2em;
+  font-weight: bolder;
+  margin-top: -20vw;
+  color: WHITE; 
 }
 
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}
-body {
-  margin: 0;
 }
 article,
 aside,
