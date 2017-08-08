@@ -1,4 +1,4 @@
 angular.module('tweetModule')
 .component('feedComponent', {
-  templateUrl: 'TweetApp/feedTemplate.html'
+  templateUrl: 'TweetApp/feed/feedTemplate.html'
 })
