@@ -11,6 +11,13 @@ let registrationState = {
   url: '/registration',
   component: 'registrationComponent'
 }
+let feedState = {
+  name: 'userFeed',
+  url: '/feed',
+  component: 'feedComponent'
+}
+
+$stateProvider.state(feedState)
 
  $urlRouterProvider.otherwise('/')
 
