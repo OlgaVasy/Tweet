@@ -24,7 +24,7 @@ let feedState = {
   component: 'feedComponent',
       resolve: {
         selectedUser: function(feedService, $transition$) {
-        return feedService.getFeed($transition$.params().username);
+        return feedService.getFeed($transition$.params().username)
       }
     }
 }
