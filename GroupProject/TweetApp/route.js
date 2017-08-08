@@ -20,8 +20,13 @@ let registrationState = {
 }
 let feedState = {
   name: 'userFeed',
-  url: '/feed',
-  component: 'feedComponent'
+  url: '/@{username}/feed',
+  component: 'feedComponent',
+      resolve: {
+        selectedUser: function(feedService, $transition$) {
+        return feedService.getFeed($transition$.params().username);
+      }
+    }
 }
 
 let loginState = {
