@@ -9,6 +9,9 @@
     <ui-view></ui-view>
   </div>
   <div class="tweetContainer">
- <button ng-click="startPageController.startPageService.getTweets()">tweets</button>
+   <div ng-repeat= "tweet in startCtrl.startPageService.tweets" >
+     <tweet-element {{tweet}}></tweet-element>
+   {{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}
+   </div>
  </div>
   </div>

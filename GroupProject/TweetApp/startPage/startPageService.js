@@ -14,7 +14,7 @@ this.getTweet = (id) =>
         console.log(this.tweets)
      },
      (failureResponse) => {
-     console.log('Abandon ship!')
+     console.log('Failed to upload data!')
      }
 
    );
