@@ -6,7 +6,11 @@ let profileState = {
   url: '/profile',
   component: 'profileComponent'
 }
-
+let registrationState = {
+  name: 'registration',
+  url: '/registration',
+  component: 'registrationComponent'
+}
 
  $urlRouterProvider.otherwise('/')
 
