@@ -1,8 +1,8 @@
 angular.module('tweetModule')
 
-.service('registrationService', ['$http',function(http) {
+.service('registrationService', ['$http', function(http) {
 
-  this.createUser = (user) => {
+  this.createUser = (tweet_user) => {
 
     return http({
 
@@ -10,7 +10,7 @@ angular.module('tweetModule')
 
       url: 'http://localhost:8080/users',
 
-      data: user
+      data: tweet_user
 
     }).then(
 
