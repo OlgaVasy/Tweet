@@ -1,7 +1,7 @@
-<div class="btn-group">
-  <a class="btn btn-primary" float="right"  ui-sref="userFeed">Logged In: {{$ctrl.username}}</a>
+<div class="btn-group" style="margin-left: 78vw">
+  <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{$ctrl.username}}</a>
   <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
-  <ul class="dropdown-menu" float = "right">
+  <ul class="dropdown-menu">
     <li><a ui-sref="profile">Go to profile</a></li>
     <li><a ui-sref="userFeed">Show followers</a></li>
     <li><a ui-sref="userFeed">Show people following</a></li>
@@ -10,25 +10,26 @@
   </ul>
   <ui-view></ui-view>
 </div>
-<div class="tweetContainer">
- <div ng-repeat= "tweet in feedCtrl.feedService.feed" >
-   <!-- <tweet-element {{tweet}}></tweet-element> -->
- {{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}
+<div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
+ <div> {{tweet.author.username}} </div>
+ <div style = "margin-left: 10vw"> {{tweet.content}} </div>
+ <div> {{tweet.posted | date:'medium'}} </div>
  </div>
 </div>
 <!-- <table class="table table-striped table-hover" table style = "margin: auto " table style="align:center"
-              table style= "background-color: rgba(255,255,255,.1)">
+              table style= "background-color: rgba(255,255,255,.1)" >
 <thead>
   <tr>
+    <th>Posted</th>
     <th>User</th>
     <th>Tweet</th>
   </tr>
 </thead>
-<tbody>
+<tbody ng-repeat= "tweet in feedCtrl.feedService.feed">
   <tr>
-    <td>$feedCtrl.feedService.feed.author
-    </td>
-    <td>{{$ctrl.content}}</td>
+    <td>{{tweet.posted | date:'medium'}}</td>
+    <td>{{tweet.author.username}}</td>
+    <td>{{tweet.content}}</td>
   </tr>
 </tbody>
 </table> -->
