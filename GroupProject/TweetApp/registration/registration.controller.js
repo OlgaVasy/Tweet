@@ -16,7 +16,7 @@ angular.module('tweetModule')
   this.createUser = () => {
     this.registrationService.createUser(this.user).then(
       (success) => {
-        console.log('user created');
+        
       },
       (failure) => {}
     )
