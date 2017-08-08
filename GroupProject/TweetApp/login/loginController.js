@@ -4,7 +4,10 @@ angular.module('tweetModule')
   this.loginService = creds;
 
   this.credentials = {
-    username: 0,
-    password: 0
+    username: '',
+    password: '',
+    usernameInput: '',
+    passwordInput: '',
+    valid: false
   }
 }])

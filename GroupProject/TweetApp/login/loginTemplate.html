@@ -1,14 +1,26 @@
 
   <div class="jumbotron">
-    <h1>Jumbotron</h1>
-    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Username</label>
-      <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Password</label>
-      <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-    </div>
+    <form class="form-horizontal">
+        <fieldset>
+          <legend>Login</legend>
+          <div class="form-group">
+            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="creds.username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="inputPassword" placeholder="Password" ng-model="creds.password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="reset" class="btn btn-default">Cancel</button>
+              <button type="submit" class="btn btn-primary" ng-click='loginCtrl.loginService.getLogin(creds)'>Submit {{creds.username}}</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
   </div>

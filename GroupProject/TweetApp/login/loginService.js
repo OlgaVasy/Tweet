@@ -1,16 +1,21 @@
 angular.module('tweetModule')
-.service('loginService', ['$http',function(http) {
-  
-this.createChair = (login) => {
-   return http({
-     method: 'POST',
-     url: 'http://localhost:8080/chair',
-     data: chair
-   }).then(
-     (success) => {
-       this.getChairs()
+.service('loginService', ['$http', function(http) {
+
+
+  this.getLogin = (creds) => {
+    console.log(creds.username)
+    return http({
+      method: 'GET',
+      params: {password: creds.username},
+      url: 'http://localhost:8080/user/validate/credentials/exists/@{' + creds.username + '}'
+    }).then(
+     (successResponse) => {
+       console.log('success')
+       //this.credentials.valid = successResponse
      },
-     (failure) => {}
+     (failureResponse) => {
+       console.log('fail')
+     }
    )
- }
- }])
+  }
+}])
