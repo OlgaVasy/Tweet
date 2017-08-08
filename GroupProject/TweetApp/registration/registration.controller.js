@@ -4,17 +4,17 @@ angular.module('tweetModule')
 
   this.registrationService = registrationService;
 
-  this.tweet_user = {
+  this.user = {
     credentials: {
       password: 'password',
       username: 'username'
     },
     profile: {
-      email: 'email@email.com'
+      email: 'Email'
     }
   }
   this.createUser = () => {
-    this.registrationService.createUser(this.tweet_user).then(
+    this.registrationService.createUser(this.user).then(
       (success) => {
         console.log('user created');
       },
