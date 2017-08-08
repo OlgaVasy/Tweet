@@ -1,14 +1,13 @@
 angular.module('tweetModule')
 
-.controller('startPageController', [function() {
+.controller('startPageController', [function(startService) {
 
   this.startPageService = startService
 
   this.newTweet = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: ''
+    posted: '',
+    username: '',
+    content: ''
   }
 
 

@@ -4,8 +4,12 @@ angular.module('tweetModule')
 let startPageState = {
    name: 'start',
    url: '/',
-   component: 'startPageComponent'
- }
+   component: 'startPageComponent',
+   resolve: {
+       function(startPageService, $transition$) {
+         return startPageService.getTweets($transition$.params());
+       }
+ }}
 
 let profileState = {
       name: 'profile',

@@ -60,11 +60,21 @@ body {
   font-size: 1.5em;
   background-color: rgba(255, 255, 255, 0.8);
 }
-.singleTweetContainer {
+
+.tweetElement {
+
   display: flex;
-  flex-wrap: wrap;
+
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  background-color: rgba(255, 100, 100, 0.8);
+
+  color: WHITE;
 
 }
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
