@@ -23,10 +23,18 @@ let feedState = {
   url: '/feed',
   component: 'feedComponent'
 }
+
+let loginState = {
+  name: 'login',
+  url: '/login',
+  component: 'loginComponent'
+}
+
 $stateProvider.state(startPageState)
 $stateProvider.state(profileState)
 $stateProvider.state(registrationState)
 $stateProvider.state(feedState)
+$stateProvider.state(loginState)
 
  $urlRouterProvider.otherwise('/')
 
