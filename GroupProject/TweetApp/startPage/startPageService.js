@@ -10,8 +10,7 @@ this.getTweet = (id) =>
    http.get('http://localhost:8080/tweet/tweets').then(
      (successResponse)=> {
        this.tweets = successResponse.data
-        console.log('Connected!!')
-        console.log(this.tweets)
+        console.log('Connected!!')      
      },
      (failureResponse) => {
      console.log('Failed to upload data!')
