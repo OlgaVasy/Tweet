@@ -12,6 +12,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.profileElement{
+  display: flex;
+}
+.headline {
+  height: 55vh;
+  width: 100vw;
+  padding-top: 30vh;
+  font-size: 8em;
+  font-weight: bolder;
+  text-align: center;
+  color: WHITE;
+  text-shadow: 5px 5px 4px BLACK;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
