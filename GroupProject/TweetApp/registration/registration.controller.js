@@ -1,6 +1,6 @@
 angular.module('tweetModule')
 
-.controller('registrationController', ['registrationService', function(registrationService) {
+.controller('registrationController', ['registrationService', '$state', function(registrationService, $state) {
 
   this.registrationService = registrationService;
 
@@ -16,9 +16,11 @@ angular.module('tweetModule')
   this.createUser = () => {
     this.registrationService.createUser(this.user).then(
       (success) => {
-        
+        $state.go('login')
       },
-      (failure) => {}
+      (failure) => {
+        alert('invaild information entered')
+      }
     )
   }
 }])
