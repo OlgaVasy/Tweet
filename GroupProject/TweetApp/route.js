@@ -13,10 +13,14 @@ let startPageState = {
 
 let profileState = {
       name: 'profile',
-      url: '/profile',
-      component: 'profileComponent'
+      url: '/@{username}/profile',
+      component: 'profileComponent',
+      resolve: {
+        selectedUser: function(profileService, $transition$) {
+        return profileService.getProfile($transition$.params().username)
+      }
 
-    }
+    }}
 let registrationState = {
   name: 'registration',
   url: '/registration',
