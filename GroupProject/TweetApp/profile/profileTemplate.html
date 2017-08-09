@@ -11,13 +11,23 @@
     </div>
   <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
   </div>
-  <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}     
+  <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
   </div>
     </div>
 
-    <!-- <div class = "myTweets">
-</div>
+    <div class = "myTweets">
+        <user-tweet-component></user-tweet-component>
+        <ui-view></ui-view>
+    </div>
 
-<div class = "myFollowing">
-</div> -->
+    <div class = "myFollowing">
+      <div class="btn-group" >
+        <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.userProfile.username}}</a>
+        <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a ui-sref="userFeed">Feed Page</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Log out</a></li>
+        </ul>
+    </div>
 </div>

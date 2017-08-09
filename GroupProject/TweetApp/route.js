@@ -11,16 +11,29 @@ let startPageState = {
        }
  }}
 
-let profileState = {
-      name: 'profile',
+let profileState ={
+     name: 'profile',
       url: '/@{username}/profile',
       component: 'profileComponent',
       resolve: {
         selectedUser: function(profileService, $transition$) {
-        return profileService.getProfile($transition$.params())
+       return profileService.getProfile($transition$.params().username)
       }
 
-    }}
+    },}
+  let userTweets ={
+    name: 'profileWithTweets',
+    url: '/',
+    parent: 'profile',
+    component: 'userAllTweetsComponent',
+    resolve: {
+      selectedUser: function(userAllTweetsService, $transition$) {
+      return userAllTweetsService.getUserAllTweets($transition$.params().username)
+    }
+
+  },
+}
+
 let registrationState = {
   name: 'registration',
   url: '/registration',
@@ -44,10 +57,12 @@ let loginState = {
 }
 
 $stateProvider.state(startPageState)
-$stateProvider.state(profileState)
-$stateProvider.state(registrationState)
-$stateProvider.state(feedState)
-$stateProvider.state(loginState)
+              .state(profileState)
+              .state(userTweets)
+              .state(registrationState)
+              .state(feedState)
+              .state(loginState)
+
 
  $urlRouterProvider.otherwise('/')
 
