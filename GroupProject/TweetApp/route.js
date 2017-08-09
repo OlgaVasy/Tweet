@@ -13,7 +13,7 @@ let startPageState = {
 
 let profileState ={
      name: 'basicProfile',
-      url: '/@{username}/pro',
+      url: '/@{username}/profile',
       component: 'profileComponent',
       resolve: {
         selectedUser: function(profileService, $transition$) {
@@ -22,37 +22,21 @@ let profileState ={
 
     },}
   let profileSubpageState ={
-    name: 'profileWithTweets',
-    url: 'file',
+    name: 'profile',
+    url: '/',
     parent: 'basicProfile',
     component: 'profileSubpageComponent',
     resolve: {
       selectedUser: function(profileSubpageService, $transition$) {
       return profileSubpageService.getUserAllTweets($transition$.params().username)
-    }
-  },}
-  let userFollowingState ={
-    name: 'profileWithTweetsFollowing',
-    url: '/',
-    parent: 'profileWithTweets',
-    component: 'followingComponent',
-    resolve: {
-      selectedUser: function(followingService, $transition$) {
-      return followingService.getFollowing($transition$.params().username)
-    }
-  },
-}
-let userFollowersState ={
-  name: 'profile',
-  url: '/',
-  parent: 'profileWithTweetsFollowing',
-  component: 'followersComponent',
-  resolve: {
-    selectedUser: function(followersService, $transition$) {
-    return followersService.getFollowers($transition$.params().username)
+    },
+      user: function(profileSubpageService, $transition$) {
+      return profileSubpageService.getFollowing($transition$.params().username)
+    },
+      newUser: function(profileSubpageService, $transition$) {
+      return profileSubpageService.getFollowers($transition$.params().username)
   }
-},
-}
+  }}
 
 let registrationState = {
   name: 'registration',
@@ -81,10 +65,7 @@ $stateProvider.state(startPageState)
               .state(profileSubpageState)
               .state(registrationState)
               .state(feedState)
-              .state(loginState)
-              .state(userFollowingState)
-              .state(userFollowersState)
-
+              .state(loginState) 
 
  $urlRouterProvider.otherwise('/')
 
