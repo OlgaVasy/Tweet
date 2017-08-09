@@ -12,7 +12,7 @@ let startPageState = {
  }}
 
 let profileState ={
-     name: 'profile',
+     name: 'basicProfile',
       url: '/@{username}/pro',
       component: 'profileComponent',
       resolve: {
@@ -24,7 +24,7 @@ let profileState ={
   let profileSubpageState ={
     name: 'profileWithTweets',
     url: 'file',
-    parent: 'profile',
+    parent: 'basicProfile',
     component: 'profileSubpageComponent',
     resolve: {
       selectedUser: function(profileSubpageService, $transition$) {
@@ -41,6 +41,17 @@ let profileState ={
       return followingService.getFollowing($transition$.params().username)
     }
   },
+}
+let userFollowersState ={
+  name: 'profile',
+  url: '/',
+  parent: 'profileWithTweetsFollowing',
+  component: 'followersComponent',
+  resolve: {
+    selectedUser: function(followersService, $transition$) {
+    return followersService.getFollowers($transition$.params().username)
+  }
+},
 }
 
 let registrationState = {
@@ -72,6 +83,7 @@ $stateProvider.state(startPageState)
               .state(feedState)
               .state(loginState)
               .state(userFollowingState)
+              .state(userFollowersState)
 
 
  $urlRouterProvider.otherwise('/')

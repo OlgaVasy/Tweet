@@ -1,7 +1,9 @@
-<div class="tweetContainer" ng-repeat= "tweet in subCtrl.profileSubpageService.userTweets">
+
+<div class="profileContain"
+<div class="profileSubpageContainer" ng-repeat= "tweet in subCtrl.profileSubpageService.userTweets">
  {{tweet.posted | date:'medium'}} {{tweet.content}}
 </div>
-<div>
-  <ui-view></ui-view>
  </div>
+<div class = "followMe">
+  <ui-view></ui-view>
  </div>

@@ -8,19 +8,17 @@
     <div class="nickName" > @{{profileCtrl.profileService.userProfile.username}}</div>
     <div class="contactInfo">
       <label class="contacts">Contact Information: </label>
+       <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
+       </div>
+       <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
+       </div>
     </div>
-  <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
-  </div>
-  <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
-  </div>
-    </div>
-
-    <div class = "myTweets">
-        <user-tweet-component></user-tweet-component>      
+</div>
+    <div class = "subpageComponent">
+        <user-tweet-component></user-tweet-component>
         <ui-view></ui-view>
-    </div>
-
-    <div class = "myFollowing">
+  </div>
+    <div class = "myLogButton">
       <div class="btn-group" >
         <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.userProfile.username}}</a>
         <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
@@ -32,4 +30,5 @@
 
 
     </div>
+</div>
 </div>
