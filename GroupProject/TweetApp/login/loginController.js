@@ -6,8 +6,6 @@ angular.module('tweetModule')
   this.credentials = {
     username: '',
     password: '',
-    usernameInput: '',
-    passwordInput: '',
-    valid: false
+    newState: 'login'
   }
 }])
