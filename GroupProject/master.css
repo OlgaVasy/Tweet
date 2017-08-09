@@ -115,6 +115,19 @@ body {
   color: black !important;
   background-color: rgba(255, 255, 255, 0.8);
 }
+.followingContainer{
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: 6%;
+  padding: 3%;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px #222;
+  line-height: 200%;
+  text-shadow: 1px 1px 4px WHITE;
+  font-size: 1.5em;
+  color: black !important;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
 html {
   font-family: sans-serif;

@@ -1,6 +1,6 @@
 angular.module('tweetModule')
 
-.service('userAllTweetsService', ['$http',function(http) {
+.service('profileSubpageService', ['$http',function(http) {
 
   this.getUserAllTweets = (username) => {
     username = sessionStorage.getItem('username')

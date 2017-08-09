@@ -21,16 +21,25 @@ let profileState ={
       }
 
     },}
-  let userTweets ={
+  let profileSubpageState ={
     name: 'profileWithTweets',
     url: 'file',
     parent: 'profile',
-    component: 'userAllTweetsComponent',
+    component: 'profileSubpageComponent',
     resolve: {
-      selectedUser: function(userAllTweetsService, $transition$) {
-      return userAllTweetsService.getUserAllTweets($transition$.params().username)
+      selectedUser: function(profileSubpageService, $transition$) {
+      return profileSubpageService.getUserAllTweets($transition$.params().username)
     }
-
+  },}
+  let userFollowingState ={
+    name: 'profileWithTweetsFollowing',
+    url: '/',
+    parent: 'profileWithTweets',
+    component: 'followingComponent',
+    resolve: {
+      selectedUser: function(followingService, $transition$) {
+      return followingService.getFollowing($transition$.params().username)
+    }
   },
 }
 
@@ -58,10 +67,11 @@ let loginState = {
 
 $stateProvider.state(startPageState)
               .state(profileState)
-              .state(userTweets)
+              .state(profileSubpageState)
               .state(registrationState)
               .state(feedState)
               .state(loginState)
+              .state(userFollowingState)
 
 
  $urlRouterProvider.otherwise('/')
