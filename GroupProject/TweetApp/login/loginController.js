@@ -8,15 +8,4 @@ angular.module('tweetModule')
     password: '',
     newState: 'login'
   }
-
-  this.createUser = () => {
-    this.registrationService.createUser(this.user).then(
-      (success) => {
-        $state.go('login')
-      },
-      (failure) => {
-        alert('invaild information entered')
-      }
-    )
-    }
 }])
