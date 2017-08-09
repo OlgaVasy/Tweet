@@ -41,6 +41,24 @@ angular.module('tweetModule')
       (failure) => {}
     )
   }
+  this.repostTweet = (id) => {
+    let credentials = {
+      password: '',
+      username: ''
+    }
+    credentials.username = sessionStorage.getItem('username')
+    credentials.password = sessionStorage.getItem('password')
+    return http({
+      method: 'POST',
+      url: 'http://localhost:8080/tweet/tweets/' + id + '/repost',
+      data: credentials
+    }).then(
+      (success) => {
+        this.getTweets()
+      },
+      (failure) => {}
+    )
+  }
   this.postTweet = (tweet) => {
     tweet.credentials.username = sessionStorage.getItem('username')
     tweet.credentials.password = sessionStorage.getItem('password')

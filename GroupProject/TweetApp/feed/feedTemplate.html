@@ -14,6 +14,11 @@
  <div> {{tweet.author.username}} </div>
  <div style = "margin-left: 10vw"> {{tweet.content}} </div>
  <div> {{tweet.posted | date:'medium'}} </div>
+ <div class="btn-group btn-group-justified">
+  <a class="btn btn-default">like</a>
+  <a class="btn btn-default">reply</a>
+  <a class="btn btn-default" ng-click="feedCtrl.tweetService.repostTweet(tweet.id)">repost</a>
+</div>
  </div>
 </div>
 <!-- <table class="table table-striped table-hover" table style = "margin: auto " table style="align:center"
