@@ -12,6 +12,9 @@
        </div>
        <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
        </div>
+       <div>
+           <a id = "followUnfollow" class="btn btn-primary" ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">Follow</a>
+         </div>
     </div>
 </div>
     <div class = "subpageComponent">
@@ -20,7 +23,7 @@
   </div>
     <div class = "myLogButton">
       <div class="btn-group" >
-        <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.userProfile.username}}</a>
+        <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.username}}</a>
         <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
