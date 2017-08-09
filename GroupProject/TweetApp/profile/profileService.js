@@ -4,7 +4,7 @@ angular.module('tweetModule')
 
   this.getProfile = (username) => {
     this.followName = username
-    username = sessionStorage.getItem('username')
+    this.username = sessionStorage.getItem('username')
     http.get('http://localhost:8080/user/users/@'+this.followName).then(
       (successResponse)=> {
         this.userProfile = successResponse.data
