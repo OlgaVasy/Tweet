@@ -12,7 +12,7 @@ let startPageState = {
  }}
 
 let profileState ={
-     name: 'pro',
+     name: 'profile',
       url: '/@{username}/pro',
       component: 'profileComponent',
       resolve: {
@@ -24,7 +24,7 @@ let profileState ={
   let userTweets ={
     name: 'profileWithTweets',
     url: 'file',
-    parent: 'pro',
+    parent: 'profile',
     component: 'userAllTweetsComponent',
     resolve: {
       selectedUser: function(userAllTweetsService, $transition$) {
