@@ -1,7 +1,8 @@
 angular.module('tweetModule')
 
-.controller('feedController', ['feedService',function(feedService) {
+.controller('feedController', ['feedService','tweetService',function(feedService,tweetService) {
 
  this.feedService = feedService
+ this.tweetService = tweetService
 
 }])
