@@ -12,6 +12,9 @@
        </div>
        <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
        </div>
+       <div>
+           <a id = "followUnfollow" class="btn btn-primary" ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">Follow</a>
+         </div>
     </div>
 </div>
     <div class = "subpageComponent">
