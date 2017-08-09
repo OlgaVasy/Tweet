@@ -6,8 +6,17 @@ angular.module('tweetModule')
   this.credentials = {
     username: '',
     password: '',
-    usernameInput: '',
-    passwordInput: '',
-    valid: false
+    newState: 'login'
   }
+
+  this.createUser = () => {
+    this.registrationService.createUser(this.user).then(
+      (success) => {
+        $state.go('login')
+      },
+      (failure) => {
+        alert('invaild information entered')
+      }
+    )
+    }
 }])
