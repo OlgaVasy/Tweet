@@ -1,8 +1,7 @@
 angular.module('tweetModule')
-
 .controller('registrationController', ['registrationService', '$state', function(registrationService, $state) {
 
-  this.registrationService = registrationService;
+  this.registrationService = registrationService
 
   this.user = {
     credentials: {
