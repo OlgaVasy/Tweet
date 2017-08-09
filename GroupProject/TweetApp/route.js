@@ -12,8 +12,8 @@ let startPageState = {
  }}
 
 let profileState ={
-     name: 'profile',
-      url: '/@{username}/profile',
+     name: 'pro',
+      url: '/@{username}/pro',
       component: 'profileComponent',
       resolve: {
         selectedUser: function(profileService, $transition$) {
@@ -23,8 +23,8 @@ let profileState ={
     },}
   let userTweets ={
     name: 'profileWithTweets',
-    url: '/',
-    parent: 'profile',
+    url: 'file',
+    parent: 'pro',
     component: 'userAllTweetsComponent',
     resolve: {
       selectedUser: function(userAllTweetsService, $transition$) {
