@@ -6,7 +6,7 @@ body {
   background-size: 100vw 100vh;
   height: 100vh;
   width: 100vw;
-  margin: 0;
+  overflow-x: hidden;
 }
 .headline {
   height: 55vh;
@@ -5947,4 +5947,85 @@ button.list-group-item-danger.active:focus {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+}
+.loginContainer {
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  font-size: 2em;
+  text-indent: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90vw;
+  margin-top: auto;
+  color: inherit;
+  background-color: #151515;
+}
+
+.login-form .login-form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.login-input-col1, .login-input-col2 {
+  width: 80%;
+  position: relative;
+  margin-left: 40px;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.login-form-group {
+  margin-bottom: 15px;
+}
+
+.login-form-control {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #888888;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #282828;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.btn-default {
+  color: #ffffff;
+  background-color: #424242;
+  border-color: #424242;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #2a9fd6;
+  border-color: #2a9fd6;
+}
+.login-btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
