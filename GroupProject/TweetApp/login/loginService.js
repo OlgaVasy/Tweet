@@ -13,8 +13,8 @@ angular.module('tweetModule')
      (successResponse) => {
        console.log(successResponse.data)
        if (successResponse.data) {
-         this.username = creds.username
-         this.password = creds.passwords
+         sessionStorage.setItem('username', creds.username)
+         sessionStorage.setItem('password', creds.password)
        }
        $state.go('profile')
      },
