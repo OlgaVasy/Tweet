@@ -8,8 +8,7 @@
     <a ui-sref="login">Log In</a>
     <ui-view></ui-view>
   </div>
-  <div class="tweetContainer">
-   <div ng-repeat= "tweet in startCtrl.startPageService.tweets" class="tweettie">     
+  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets">
    {{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}
    </div>
  </div>

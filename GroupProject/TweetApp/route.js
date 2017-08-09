@@ -17,7 +17,7 @@ let profileState = {
       component: 'profileComponent',
       resolve: {
         selectedUser: function(profileService, $transition$) {
-        return profileService.getProfile($transition$.params().username)
+        return profileService.getProfile($transition$.params())
       }
 
     }}
