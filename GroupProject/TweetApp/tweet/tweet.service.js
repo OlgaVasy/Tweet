@@ -29,6 +29,8 @@ angular.module('tweetModule')
   }
 
   this.postTweet = (tweet) => {
+    tweet.credentials.username = sessionStorage.getItem('username')
+    tweet.credentials.username = sessionStorage.getItem('password')
     return http({
       method: 'POST',
       url: 'http://localhost:8080/tweet/tweets/',
