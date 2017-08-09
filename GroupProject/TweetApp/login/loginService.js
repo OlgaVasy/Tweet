@@ -15,8 +15,13 @@ angular.module('tweetModule')
        if (successResponse.data) {
          sessionStorage.setItem('username', creds.username)
          sessionStorage.setItem('password', creds.password)
+<<<<<<< HEAD
 
        $state.go('profileWithTweets',{username: creds.username})}
+=======
+         $state.go('profileWithTweets', {username: creds.username})
+       }
+>>>>>>> 7f91e60bd07d2fe852c1785d763661dbeee9af8b
      },
      (failureResponse) => {
        console.log('fail')
