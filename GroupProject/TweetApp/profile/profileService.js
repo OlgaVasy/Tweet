@@ -38,6 +38,7 @@ angular.module('tweetModule')
       (success) => {
         console.log('Following ' + this.followName)
         this.followedOrNah = 'Unfollow'
+        $state.go($state.current, {}, {reload: true})
       }
       )
     } else {
@@ -51,6 +52,7 @@ angular.module('tweetModule')
         (success) => {
           console.log('Unfollowed ' + this.followName)
           this.followedOrNah = 'Follow'
+          $state.go($state.current, {}, {reload: true})
         }
         )
     }
