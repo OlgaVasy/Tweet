@@ -2,6 +2,7 @@ angular.module('tweetModule')
 
 .service('profileService', ['$http',function(http) {
   this.followedOrNah = 'Follow'
+  this.likedTweetsButton = 'Liked Tweets'
 
   this.getProfile = (username) => {
     this.followName = username
@@ -52,6 +53,7 @@ angular.module('tweetModule')
   }
 
   this.checkFollowing = () => {
+    this.likedTweetsButton = 'Liked Tweets'
      http.get('http://localhost:8080/user/users/@'+ this.username+'/following')
      .then(
        (failure)=> {
