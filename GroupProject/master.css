@@ -20,7 +20,7 @@ body {
   text-shadow: 5px 5px 4px BLACK;
 }
 .beLoggedIn{
-  margin-left: 75vw;
+  margin-left: 80vw;
   font-size: 2em;
   font-weight: bolder;
   margin-top: -20vw;
@@ -85,6 +85,7 @@ body {
         -webkit-align-self: stretch;
         -ms-flex-item-align: stretch;
         align-self: stretch;
+        background-color: white;
 
           }
   .tweetContainer {
@@ -193,7 +194,7 @@ color: black;
    color: black;
      }
      .followImage{
-       margin-left: 10%;
+       margin-left: 4%;
      }
   .followingContainer{
     width: 80%;

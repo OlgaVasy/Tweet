@@ -21,6 +21,11 @@ angular.module('tweetModule')
       sessionStorage.clear()
       $state.go('start')
   }
+  this.goToMyProfile = () => {
+      this.username = sessionStorage.getItem('username')
+      $state.go('profile', {username: this.username})
+  }
+
   this.follow = () => {
     this.test1 = sessionStorage.getItem('password').toString()
     this.test2 = sessionStorage.getItem('username').toString()
