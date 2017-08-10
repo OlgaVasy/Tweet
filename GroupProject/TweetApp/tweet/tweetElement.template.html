@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
  <div> {{tweet.author.username}} </div>
  <div style = "margin-left: 10vw"> {{tweet.content}} </div>
@@ -9,3 +10,6 @@
   <a class="btn btn-default" ng-click="feedCtrl.tweetService.repostTweet(tweet.id)">repost</a>
 </div>
  </div>
+=======
+<h2>{{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}} </h2>
+>>>>>>> 74aefa774c3dd326b83986c8a31731f657c573f7
