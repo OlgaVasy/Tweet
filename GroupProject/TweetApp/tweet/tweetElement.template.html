@@ -1,1 +1,11 @@
-<h2>{{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}</h2>
+<div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
+ <div> {{tweet.author.username}} </div>
+ <div style = "margin-left: 10vw"> {{tweet.content}} </div>
+ <div> {{tweet.posted | date:'medium'}} </div>
+ <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='feedCtrl.newTweet.content'>
+ <div class="btn-group btn-group-justified">
+  <a class="btn btn-default" ng-click="feedCtrl.tweetService.likeTweet(tweet.id)">like</a>
+  <a class="btn btn-default" ng-click="feedCtrl.tweetService.replyTweet(feedCtrl.newTweet, tweet.id)">reply</a>
+  <a class="btn btn-default" ng-click="feedCtrl.tweetService.repostTweet(tweet.id)">repost</a>
+</div>
+ </div>
