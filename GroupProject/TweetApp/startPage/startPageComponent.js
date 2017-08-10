@@ -1,5 +1,4 @@
 angular.module('tweetModule')
-
 .component('startPageComponent', {
   templateUrl: 'TweetApp/startPage/startPageTemplate.html',
   controller: 'startPageController',
@@ -9,9 +8,5 @@ angular.module('tweetModule')
     'tweet': '=',
     'profile': '=',
     'logOut': '='
-
   }
-
-
-
 })
