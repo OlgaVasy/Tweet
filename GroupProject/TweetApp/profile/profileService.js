@@ -23,7 +23,7 @@ angular.module('tweetModule')
     let credentials = {credentials: {password: this.test1,
                                       username:this.test2 }}
 
-    if ($('button').hasClass('active')) {
+    if (this.followedOrNah === 'Follow') {
       return http({
         method: 'POST',
         url: 'http://localhost:8080/user/users/@'+this.followName+'/follow',
