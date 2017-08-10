@@ -32,39 +32,6 @@
    <div ng-init = "limit = 10">
      <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
     <div class = "time">{{tweet.posted | date:'medium'}}</div>
-<<<<<<< HEAD
-                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div></div>
-    <div class = "photo">
-    <img src= "/image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
-    </div>
-    <div class="name" > {{profileCtrl.profileService.userProfile.profile.firstName}}
-    {{profileCtrl.profileService.userProfile.profile.lastName}} </div>
-    <div class="nickName" > @{{profileCtrl.profileService.userProfile.username}}</div>
-    <div class="contactInfo">
-      <label class="contacts">Contact Information: </label>
-       <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
-       </div>
-       <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
-       </div>
-       <div style="margin-top: 1vh">
-           <button class="btn btn-primary" data-toggle="button"
-              ng-click="profileCtrl.profileService.follow()">
-              {{profileCtrl.profileService.followedOrNah}}</button>
-         </div>
-         <div style="margin-top: 1vh">
-             <button class="btn btn-primary"
-                ng-click="profileCtrl.profileService.getLikes()">
-                Liked Tweets</button>
-           </div>
-    </div>
-</div>
-    <div class = "subpageComponent">
-        <user-tweet-component></user-tweet-component>
-        <div class="profileContain">
-          <div class = "profileTweets">
-        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets">
-         {{tweet.posted | date:'medium'}} {{tweet.content}}
-=======
                   <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div>
                   <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='profileCtrl.newTweet.content'>
                   <div class="btn-group btn-group-justified">
@@ -74,7 +41,6 @@
                  </div>
                 </div>
 
->>>>>>> 0b02f1a29941f6625730da9b720b19d339402a72
         </div>
         <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
         ng-click="limit = limit +2">show more tweets...</button>
@@ -96,23 +62,6 @@
             {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a>
           </div>
            </div>
-<<<<<<< HEAD
-           </div>
-             </div>
-   </div>
-     <div class = "myLogButton">
-       <div class="btn-group" >
-
-           <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
-           <li class="divider"></li>
-           <li><a href="#">Log out</a></li>
-       </ul>
-       </ul>
-     </div>
- </div>
- </div>
-=======
->>>>>>> 0b02f1a29941f6625730da9b720b19d339402a72
               </div>
   </div>
     <div class = "myLogButton">
