@@ -10,7 +10,6 @@
   </ul>
   <ui-view></ui-view>
 </div>
-<!-- <tweet-element></tweet-element> -->
 <div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
  <a class="btn btn-primary" ui-sref= "profile(tweet.author)"> {{tweet.author.username}}</a>
  <div style = "margin-left: 10vw"> {{tweet.content}} </div>
