@@ -1,5 +1,5 @@
 angular.module('tweetModule')
-.service('tweetService', ['$http', function(http) {
+.service('tweetService', ['$http', '$state', function(http, $state) {
 
   this.getTweet = (id) =>
     http.get('http://localhost:8080/tweet/tweets/' + id)
@@ -72,6 +72,25 @@ angular.module('tweetModule')
       (success) => {
         this.getTweets()
         $state.reload('profileWithTweets')
+      },
+      (failure) => {}
+    )
+  }
+  this.likeTweet = (id) => {
+    let input = {
+      credentials: {
+        password: '',
+        username: ''
+      }
+    }
+    input.credentials.username = sessionStorage.getItem('username')
+    input.credentials.password = sessionStorage.getItem('password')
+    return http({
+      method: 'POST',
+      url: 'http://localhost:8080/tweet/tweets/' + id + '/like',
+      data: input
+    }).then(
+      (success) => {
       },
       (failure) => {}
     )
