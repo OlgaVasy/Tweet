@@ -54,6 +54,7 @@ angular.module('tweetModule')
 
   this.checkFollowing = () => {
     this.likedTweetsButton = 'Liked Tweets'
+    this.shouldShow = true
      http.get('http://localhost:8080/user/users/@'+ this.username+'/following')
      .then(
        (failure)=> {
@@ -76,8 +77,12 @@ angular.module('tweetModule')
      (failure) => {
      },
      (success) => {
-       console.log(success.data)
-       //$('profileSubpageComponent').visible = 'false'
+       this.shouldShow = !this.shouldShow
+       if(!this.shouldShow) {
+          this.likedTweetsButton = 'User Tweets'
+        } else {
+          this.likedTweetsButton = 'Liked Tweets'
+        }
        this.likedTweets = success.data
      }
    )
