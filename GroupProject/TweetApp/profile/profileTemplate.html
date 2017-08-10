@@ -30,6 +30,12 @@
           <div class = "profileTweets">
         <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets">
          {{tweet.posted | date:'medium'}} {{tweet.content}}
+         <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='profileCtrl.newTweet.content'>
+         <div class="btn-group btn-group-justified">
+          <a class="btn btn-default" ng-click="profileCtrl.tweetService.likeTweet(tweet.id)">like</a>
+          <a class="btn btn-default" ng-click="profileCtrl.tweetService.replyTweet(feedCtrl.newTweet, tweet.id)">reply</a>
+          <a class="btn btn-default" ng-click="profileCtrl.tweetService.repostTweet(tweet.id)">repost</a>
+        </div>
         </div>
         </div>
         <div class = "followMe">

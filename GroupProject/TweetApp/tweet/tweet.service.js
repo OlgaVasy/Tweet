@@ -53,21 +53,21 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
-        this.getReposts()
+        $state.go($state.current, {}, {reload: true})
       },
       (failure) => {}
     )
   }
-  this.getReposts = (id) => {
-    http.get('http://localhost:8080/tweet/tweets/' + id + '/reposts').then(
-      (successResponse)=> {
-        this.reposts = successResponse.data
-      },
-      (failureResponse) => {
-      (this.reposts=failureResponse.data)
-      }
-   )
-  }
+  // this.getReposts = (id) => {
+  //   http.get('http://localhost:8080/tweet/tweets/' + id + '/reposts').then(
+  //     (successResponse)=> {
+  //       this.reposts = successResponse.data
+  //     },
+  //     (failureResponse) => {
+  //       this.reposts = failureResponse.data
+  //     }
+  //  )
+  // }
 
   this.postTweet = (tweet) => {
     tweet.credentials.username = sessionStorage.getItem('username')
@@ -79,7 +79,8 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
-        $state.reload('profile')
+        // $state.reload('profile')
+        $state.go($state.current, {}, {reload: true})
       },
       (failure) => {}
     )
