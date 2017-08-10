@@ -40,6 +40,9 @@
                    <a class="btn btn-default" ng-click="profileCtrl.tweetService.repostTweet(tweet.id)">repost</a>
                  </div>
                 </div>
+    <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
+              {{tweet.posted | date:'medium'}} {{tweet.content}}
+      </div>
 
         </div>
         <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
