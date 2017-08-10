@@ -15,14 +15,13 @@ angular.module('tweetModule')
 
    );
   }
-  this.count = 1
   this.follow = () => {
     this.test1 = sessionStorage.getItem('password').toString()
     this.test2 = sessionStorage.getItem('username').toString()
     let credentials = {credentials: {password: this.test1,
                                       username:this.test2 }}
 
-    if (this.count%2 != 0) {
+    if ($('button').hasClass('active')) {
       return http({
         method: 'POST',
         url: 'http://localhost:8080/user/users/@'+this.followName+'/follow',
@@ -32,8 +31,9 @@ angular.module('tweetModule')
       },
       (success) => {
         console.log('Following ' + this.followName)
-        $('followUnfollow').html('Unfollow')
-        this.count++
+        $('button').click(function(){ //you can give id or class name here for $('button')
+              $(this).text('Follow')
+                })
       }
       )
     } else {
@@ -46,7 +46,9 @@ angular.module('tweetModule')
         },
         (success) => {
           console.log('Unfollowed ' + this.followName)
-          this.count++
+          $('button').click(function(){ //you can give id or class name here for $('button')
+                $(this).text('Unfollow')
+                  })
         }
         )
     }
