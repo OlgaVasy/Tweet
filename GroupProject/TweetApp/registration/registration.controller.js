@@ -15,6 +15,7 @@ angular.module('tweetModule')
       phone: ''
     }
   }
+
   this.createUser = () => {
     this.registrationService.createUser(this.user).then(
       (success) => {
