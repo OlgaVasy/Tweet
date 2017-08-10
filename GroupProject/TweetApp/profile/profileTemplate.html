@@ -1,6 +1,5 @@
 <div class="profileComponent" ng-init ="profileCtrl.profileService.checkFollowing()">
     <div class = "privateInfo">
-<<<<<<< HEAD
       <div class = "photo">
         <img src= "/image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
       </div>
@@ -34,7 +33,6 @@
      <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
     <div class = "time">{{tweet.posted | date:'medium'}}</div>
                   <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div></div>
-=======
     <div class = "photo">
     <img src= "/image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
     </div>
@@ -65,7 +63,6 @@
           <div class = "profileTweets">
         <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets">
          {{tweet.posted | date:'medium'}} {{tweet.content}}
->>>>>>> 58e9bf2effb857f18145f2a23994b5d7d52239b5
         </div>
         <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
         ng-click="limit = limit +2">show more tweets...</button>
@@ -87,7 +84,6 @@
             {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a>
           </div>
            </div>
-<<<<<<< HEAD
            </div>
              </div>
    </div>
@@ -102,7 +98,6 @@
      </div>
  </div>
  </div>
-=======
               </div>
   </div>
     <div class = "myLogButton">
@@ -120,4 +115,3 @@
 <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
  {{tweet.posted | date:'medium'}} {{tweet.content}}
 </div>
->>>>>>> 58e9bf2effb857f18145f2a23994b5d7d52239b5

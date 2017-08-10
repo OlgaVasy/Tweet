@@ -1,6 +1,7 @@
 angular.module('tweetModule')
 
-.controller('startPageController', ['startPageService',function(startService) {
+.controller('startPageController', ['startPageService','profileService', function(startService, profileService) {
   this.startPageService = startService
+  this.profileService = profileService
 
 }])

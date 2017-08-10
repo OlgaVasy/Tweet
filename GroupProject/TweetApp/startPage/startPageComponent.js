@@ -6,7 +6,8 @@ angular.module('tweetModule')
   controllerAs: 'startCtrl',
   bindings: {
     'changePage': '=',
-    'tweet': '='
+    'tweet': '=',
+    'profile': '='
 
   }
 
