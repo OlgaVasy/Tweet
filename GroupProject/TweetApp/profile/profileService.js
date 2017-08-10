@@ -2,6 +2,7 @@ angular.module('tweetModule')
 
 .service('profileService', ['$http',function(http) {
   this.followedOrNah = 'Follow'
+  this.likedTweetsButton = 'Liked Tweets'
 
   this.getProfile = (username) => {
     this.followName = username
@@ -32,9 +33,7 @@ angular.module('tweetModule')
       },
       (success) => {
         console.log('Following ' + this.followName)
-        $('button').click(function(){
-              $(this).text('Follow')
-                })
+        this.followedOrNah = 'Unfollow'
       }
       )
     } else {
@@ -47,15 +46,14 @@ angular.module('tweetModule')
         },
         (success) => {
           console.log('Unfollowed ' + this.followName)
-          $('button').click(function(){
-                $(this).text('Unfollow')
-                  })
+          this.followedOrNah = 'Follow'
         }
         )
     }
   }
 
   this.checkFollowing = () => {
+    this.likedTweetsButton = 'Liked Tweets'
      http.get('http://localhost:8080/user/users/@'+ this.username+'/following')
      .then(
        (failure)=> {
