@@ -32,7 +32,8 @@
    <div ng-init = "limit = 10">
      <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
     <div class = "time">{{tweet.posted | date:'medium'}}</div>
-                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div></div>
+                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div>
+                </div>
         </div>
         <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
         ng-click="limit = limit +2">show more tweets...</button>
@@ -54,7 +55,6 @@
             {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a>
           </div>
            </div>
-<<<<<<< HEAD
            </div>
              </div>
    </div>
@@ -68,10 +68,7 @@
        </ul>
      </div>
  </div>
- </div>
-=======
-              </div>
-  </div>
+
     <div class = "myLogButton">
       <div class="btn-group" >
         <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.username}}</a>
@@ -84,10 +81,3 @@
     </div>
 </div>
 </div>
-<<<<<<< HEAD
-=======
-<div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
- {{tweet.posted | date:'medium'}} {{tweet.content}}
-</div>
->>>>>>> 58e9bf2effb857f18145f2a23994b5d7d52239b5
->>>>>>> 1e7c8fbfda4d63782fc4340f989cdfc6ab80af6d

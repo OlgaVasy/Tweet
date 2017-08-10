@@ -83,41 +83,6 @@ angular.module('tweetModule')
      }
    )
  }
-//  {
-//    this.likedTweets = []
-//   return http.get('http://localhost:8080/tweet/tweets')
-//   .then(
-//     (success) => {
-//       success.data.forEach(tweet =>
-//         http.get('http://localhost:8080/tweet/tweets/'+tweet.id+'/likes')
-//         .then(
-//           (success) => {
-//             success.data.filter((item) => {
-//               if (item.username === this.followName){
-//                   http.get('http://localhost:8080/tweet/tweets/'+tweet.id+'/likelyWontWork')
-//                   .then(
-//                     (success) => {
-//                       console.log(success.data[0])
-//                       this.likedTweets.map((item) => {
-//                         item = success.data[0]
-//                       })
-//                     },
-//                     (failure) => {}
-//                   )
-//               }
-//             })
-//           },
-//           (failure) => {
-//
-//           }
-//         )
-//       )
-//     },
-//     (failure) => {
-//       console.log(failure.data)
-//     }
-//   )
-// }
 
 
   this.getUserAllTweets = (username) => {
