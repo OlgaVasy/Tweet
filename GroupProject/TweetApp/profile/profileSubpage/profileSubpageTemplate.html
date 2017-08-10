@@ -13,13 +13,14 @@
   <div class="followingContainer">
   <div class="followHeading"> Following </div>
     <div ng-repeat= "following in subCtrl.profileSubpageService.userFollowing">
-   {{following.profile.firstName}} {{following.profile.lastName}} @{{following.username}}
+      <a ui-sref="profile ({username: following.username})">{{following.profile.firstName}} {{following.profile.lastName}} @{{following.username}}</a>
    </div>
        </div>
    <div class="followersContainer">
    <div class="followHeading"> Followers </div>
      <div ng-repeat= "follower in subCtrl.profileSubpageService.userFollowers">
-    {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}
+      <a ui-sref="profile ({username: follower.username})">
+    {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a> 
 
     </div>
     </div>

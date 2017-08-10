@@ -198,6 +198,12 @@ body {
     font-size: 1.5em;
     background-color: rgba(102, 255, 178, 0.8);
      }
+     .followersContainer a{
+       color: black;
+     }
+     .followingContainer a{
+       color: black;
+     }
  .name{
    color: black;
    margin-left: 5%;
