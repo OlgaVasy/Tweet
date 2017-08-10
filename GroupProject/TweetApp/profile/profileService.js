@@ -2,6 +2,7 @@ angular.module('tweetModule')
 
 .service('profileService', ['$http','$state',function(http,$state) {
   this.followedOrNah = 'Follow'
+  this.likedTweetsButton = 'Liked Tweets'
 
   this.getProfile = (username) => {
     this.followName = username
@@ -26,7 +27,7 @@ angular.module('tweetModule')
     let credentials = {credentials: {password: this.test1,
                                       username:this.test2 }}
 
-    if ($('button').hasClass('active')) {
+    if (this.followedOrNah === 'Follow') {
       return http({
         method: 'POST',
         url: 'http://localhost:8080/user/users/@'+this.followName+'/follow',
@@ -36,9 +37,7 @@ angular.module('tweetModule')
       },
       (success) => {
         console.log('Following ' + this.followName)
-        $('button').click(function(){
-              $(this).text('Follow')
-                })
+        this.followedOrNah = 'Unfollow'
       }
       )
     } else {
@@ -51,15 +50,15 @@ angular.module('tweetModule')
         },
         (success) => {
           console.log('Unfollowed ' + this.followName)
-          $('button').click(function(){
-                $(this).text('Unfollow')
-                  })
+          this.followedOrNah = 'Follow'
         }
         )
     }
   }
 
   this.checkFollowing = () => {
+    this.likedTweetsButton = 'Liked Tweets'
+    this.shouldShow = true
      http.get('http://localhost:8080/user/users/@'+ this.username+'/following')
      .then(
        (failure)=> {
@@ -82,46 +81,16 @@ angular.module('tweetModule')
      (failure) => {
      },
      (success) => {
-       console.log(success.data)
+       this.shouldShow = !this.shouldShow
+       if(!this.shouldShow) {
+          this.likedTweetsButton = 'User Tweets'
+        } else {
+          this.likedTweetsButton = 'Liked Tweets'
+        }
        this.likedTweets = success.data
      }
    )
  }
-//  {
-//    this.likedTweets = []
-//   return http.get('http://localhost:8080/tweet/tweets')
-//   .then(
-//     (success) => {
-//       success.data.forEach(tweet =>
-//         http.get('http://localhost:8080/tweet/tweets/'+tweet.id+'/likes')
-//         .then(
-//           (success) => {
-//             success.data.filter((item) => {
-//               if (item.username === this.followName){
-//                   http.get('http://localhost:8080/tweet/tweets/'+tweet.id+'/likelyWontWork')
-//                   .then(
-//                     (success) => {
-//                       console.log(success.data[0])
-//                       this.likedTweets.map((item) => {
-//                         item = success.data[0]
-//                       })
-//                     },
-//                     (failure) => {}
-//                   )
-//               }
-//             })
-//           },
-//           (failure) => {
-//
-//           }
-//         )
-//       )
-//     },
-//     (failure) => {
-//       console.log(failure.data)
-//     }
-//   )
-// }
 
 
   this.getUserAllTweets = (username) => {
