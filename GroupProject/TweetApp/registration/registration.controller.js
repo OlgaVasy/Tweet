@@ -9,7 +9,10 @@ angular.module('tweetModule')
       username: 'username'
     },
     profile: {
-      email: 'Email'
+      email: 'Email',
+      firstName: '',
+      lastName: '',
+      phone: ''
     }
   }
   this.createUser = () => {
