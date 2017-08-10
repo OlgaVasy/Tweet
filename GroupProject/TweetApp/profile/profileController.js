@@ -4,4 +4,12 @@ angular.module('tweetModule')
   this.profileService = manageProfile
   this.tweetService = manageTweet
 
+  this.newTweet = {
+    content: '',
+    credentials: {
+      password: '',
+      username: ''
+    }
+  }
+
 }])
