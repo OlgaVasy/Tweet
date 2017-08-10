@@ -12,31 +12,23 @@ let startPageState = {
  }}
 
 let profileState ={
-     name: 'basicProfile',
+     name: 'profile',
       url: '/@{username}/profile',
       component: 'profileComponent',
       resolve: {
-        selectedUser: function(profileService, $transition$) {
+        theUser: function(profileService, $transition$) {
        return profileService.getProfile($transition$.params().username)
-      }
-
-    },}
-  let profileSubpageState ={
-    name: 'profile',
-    url: '/',
-    parent: 'basicProfile',
-    component: 'profileSubpageComponent',
-    resolve: {
-      selectedUser: function(profileSubpageService, $transition$) {
-      return profileSubpageService.getUserAllTweets($transition$.params().username)
-    },
-      user: function(profileSubpageService, $transition$) {
-      return profileSubpageService.getFollowing($transition$.params().username)
-    },
-      newUser: function(profileSubpageService, $transition$) {
-      return profileSubpageService.getFollowers($transition$.params().username)
-  }
-  }}
+     },
+         selectedUser: function(profileService, $transition$) {
+         return profileService.getUserAllTweets($transition$.params().username)
+       },
+         user: function(profileService, $transition$) {
+         return profileService.getFollowing($transition$.params().username)
+       },
+         newUser: function(profileService, $transition$) {
+         return profileService.getFollowers($transition$.params().username)
+     }
+     }}
 
 let registrationState = {
   name: 'registration',
@@ -62,10 +54,9 @@ let loginState = {
 
 $stateProvider.state(startPageState)
               .state(profileState)
-              .state(profileSubpageState)
               .state(registrationState)
               .state(feedState)
-              .state(loginState) 
+              .state(loginState)
 
  $urlRouterProvider.otherwise('/')
 

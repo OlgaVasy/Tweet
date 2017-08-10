@@ -6,7 +6,10 @@ angular.module('tweetModule')
   controllerAs: 'profileCtrl',
   bindings: {
     'profile': '=',
-    'username': '='
+    'username': '=',
+    'tweet': '=',
+    'following': '=',
+    'follower': '='
   }
 
 })

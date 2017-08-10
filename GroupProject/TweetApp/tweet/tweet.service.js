@@ -57,10 +57,22 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
+        this.getReposts()
       },
       (failure) => {}
     )
   }
+  this.getReposts = (id) => {
+    http.get('http://localhost:8080/tweet/tweets/'+id+'/reposts').then(
+      (successResponse)=> {
+        this.reposts = successResponse.data
+      },
+      (failureResponse) => {
+      (this.reposts=failureResponse.data)
+      }
+   );
+  }
+
   this.postTweet = (tweet) => {
     tweet.credentials.username = sessionStorage.getItem('username')
     tweet.credentials.password = sessionStorage.getItem('password')
