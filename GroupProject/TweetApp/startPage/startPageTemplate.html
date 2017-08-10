@@ -19,8 +19,8 @@
     <ui-view></ui-view>
   </div>
     <div ng-init = "limit = 10">
-  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">">
-    <a class="btn btn-primary" ui-sref= "profile(tweet.author)">{{tweet.author.username}}</a>
+  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">
+    <a class="btn btn-primary" ui-sref= "profile(tweet.author)"> {{tweet.author.username}}</a>
    {{tweet.posted | date:'medium'}} : {{tweet.content}}
  </div>
  <button class = "showMorebutton" ng-hide="results.length === startCtrl.startPageService.tweets.length"
