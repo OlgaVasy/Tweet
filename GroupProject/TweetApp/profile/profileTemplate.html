@@ -32,13 +32,15 @@
    <div ng-init = "limit = 10">
      <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
     <div class = "time">{{tweet.posted | date:'medium'}}</div>
-                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div></div>
+                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div>
                   <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='profileCtrl.newTweet.content'>
                   <div class="btn-group btn-group-justified">
                    <a class="btn btn-default" ng-click="profileCtrl.tweetService.likeTweet(tweet.id)">like</a>
                    <a class="btn btn-default" ng-click="profileCtrl.tweetService.replyTweet(feedCtrl.newTweet, tweet.id)">reply</a>
                    <a class="btn btn-default" ng-click="profileCtrl.tweetService.repostTweet(tweet.id)">repost</a>
                  </div>
+                </div>
+
         </div>
         <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
         ng-click="limit = limit +2">show more tweets...</button>
