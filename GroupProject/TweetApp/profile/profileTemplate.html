@@ -65,3 +65,6 @@
     </div>
 </div>
 </div>
+<div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
+ {{tweet.posted | date:'medium'}} {{tweet.content}}
+</div>

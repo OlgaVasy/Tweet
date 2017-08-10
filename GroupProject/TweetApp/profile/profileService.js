@@ -82,7 +82,13 @@ angular.module('tweetModule')
           (success) => {
             success.data.filter((item) => {
               if (item.username === this.followName){
-                  console.log(tweet.id)
+                  http.get('http://localhost:8080/tweet/tweets/'+tweet.id+'/likelyWontWork')
+                  .then(
+                    (success) => {
+                      this.likedTweets = success.data
+                    },
+                    (failure) => {}
+                  )
               }
             })
           },
