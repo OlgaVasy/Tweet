@@ -5,4 +5,12 @@ angular.module('tweetModule')
  this.feedService = feedService
  this.tweetService = tweetService
 
+ this.newTweet = {
+   content: '',
+   credentials: {
+     password: '',
+     username: ''
+   }
+ }
+
 }])

@@ -13,7 +13,8 @@
        <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
        </div>
        <div>
-           <a id = "followUnfollow" class="btn btn-primary" ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">Follow</a>
+           <button id = "followUnfollow" class="btn btn-primary" data-toggle="button"
+              ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">Follow</button>
          </div>
     </div>
 </div>
