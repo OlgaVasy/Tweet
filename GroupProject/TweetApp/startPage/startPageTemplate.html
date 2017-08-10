@@ -9,7 +9,7 @@
       <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a ui-sref="userFeed ({username: startCtrl.profileService.userProfile.username})">Feed Page</a></li>
-<<<<<<< HEAD
+
 
         <li><a ui-sref="profile ({username: startCtrl.profileService.userProfile.username})">My profile</a></li>
 
@@ -37,8 +37,6 @@
    <button class = "showMorebutton" ng-hide="results.length === startCtrl.startPageService.tweets.length"
         ng-click="limit = limit +5">show more tweets...</button>
     </div>
-
-=======
         <li><a ui-sref="profile ({username: startCtrl.profileService.userProfile.username})">My profile</a></li>
         <li class="divider"></li>
         <li><a ng-click="startCtrl.startPageService.logOut()">Log out</a></li>
@@ -63,6 +61,5 @@
     </div>
     <button class = "showMorebutton" ng-hide="results.length === startCtrl.startPageService.tweets.length"
         ng-click="limit = limit +5">show more tweets...</button>
->>>>>>> e5d03d0593fa0eb9d804293cebc2ce9960c06c52
   </div>
 </div>
