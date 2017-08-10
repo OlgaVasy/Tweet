@@ -71,7 +71,7 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
-        $state.reload('profileWithTweets')
+        $state.reload('profile')
       },
       (failure) => {}
     )
