@@ -31,7 +31,7 @@ angular.module('tweetModule')
       },
       (success) => {
         console.log('Following ' + this.followName)
-        $('button').click(function(){ //you can give id or class name here for $('button')
+        $('button').click(function(){
               $(this).text('Follow')
                 })
       }
@@ -46,13 +46,30 @@ angular.module('tweetModule')
         },
         (success) => {
           console.log('Unfollowed ' + this.followName)
-          $('button').click(function(){ //you can give id or class name here for $('button')
+          $('button').click(function(){
                 $(this).text('Unfollow')
                   })
         }
         )
     }
   }
+
+  this.checkFollowing = () => {
+     http.get('http://localhost:8080/user/users/@'+ this.username+'/following')
+     .then(
+       (failure)=> {
+         console.log('failure')
+       },
+       (success) => {
+         success.data.forEach((item) => {
+           if(item.username === this.followName) {
+             this.followedOrNah = 'Unfollow'
+           }
+         })
+       }
+    );
+
+ }
 
   this.getUserAllTweets = (username) => {
     http.get('http://localhost:8080/user/users/@'+username+'/tweets').then(
