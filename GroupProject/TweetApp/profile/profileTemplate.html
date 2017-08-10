@@ -62,8 +62,20 @@
             {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a>
           </div>
            </div>
-              </div>
-  </div>
+           </div>
+             </div>
+   </div>
+     <div class = "myLogButton">
+       <div class="btn-group" >
+
+           <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
+           <li class="divider"></li>
+           <li><a href="#">Log out</a></li>
+       </ul>
+       </ul>
+     </div>
+ </div>
+
     <div class = "myLogButton">
       <div class="btn-group" >
         <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.username}}</a>
@@ -75,7 +87,4 @@
         </ul>
     </div>
 </div>
-</div>
-<div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
- {{tweet.posted | date:'medium'}} {{tweet.content}}
 </div>
