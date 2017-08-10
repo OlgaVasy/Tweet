@@ -43,7 +43,7 @@
                 </div>
     <div class="profileLikedTweetsContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets"
                                              ng-show = "!profileCtrl.profileService.shouldShow">
-              {{tweet.posted | date:'medium'}} {{tweet.content}}
+              {{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}
       </div>
 
         </div>
