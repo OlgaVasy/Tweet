@@ -18,9 +18,13 @@
     <button class="btn-primary" ui-sref="login" ng-style="startCtrl.startPageService.changePage()">Log In</button>
     <ui-view></ui-view>
   </div>
-  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets">
+    <div ng-init = "limit = 10">
+  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">">
     <a class="btn btn-primary" ui-sref= "profile(tweet.author)">{{tweet.author.username}}</a>
    {{tweet.posted | date:'medium'}} : {{tweet.content}}
-   </div>
+ </div>
+ <button class = "showMorebutton" ng-hide="results.length === startCtrl.startPageService.tweets.length"
+ ng-click="limit = limit +5">show more tweets...</button>
+
  </div>
   </div>

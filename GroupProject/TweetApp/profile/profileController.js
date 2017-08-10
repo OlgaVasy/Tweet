@@ -1,6 +1,7 @@
 angular.module('tweetModule')
 
-.controller('profileController', ['profileService',function(manageProfile) {
+.controller('profileController', ['profileService','tweetService', function(manageProfile, manageTweet) {
   this.profileService = manageProfile
+  this.tweetService = manageTweet
 
 }])

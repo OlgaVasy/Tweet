@@ -41,7 +41,7 @@ angular.module('tweetModule')
       (failure) => {}
     )
   }
-  this.repostTweet = (id) => {
+  this.repostTweet = (id) => {  
     let input = {
       credentials: {
         password: '',
@@ -57,18 +57,18 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
-        this.getReposts()
       },
-      (failure) => {}
+      (failure) => {
+      }
     )
   }
+
   this.getReposts = (id) => {
     http.get('http://localhost:8080/tweet/tweets/'+id+'/reposts').then(
       (successResponse)=> {
         this.reposts = successResponse.data
       },
       (failureResponse) => {
-      (this.reposts=failureResponse.data)
       }
    );
   }
