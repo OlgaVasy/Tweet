@@ -5,10 +5,8 @@ angular.module('tweetModule')
   controller: 'profileSubpageController',
   controllerAs: 'subCtrl',
   bindings: {
-    'tweet': '='
-
-  }
-
-
-
+    'tweet': '=',
+    'following': '=',
+    'follower': '='
+   }
 })

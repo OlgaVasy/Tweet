@@ -99,7 +99,6 @@ body {
   font-size: 1.5em;
   background-color: rgba(255, 255, 255, 0.8);
 }
-<<<<<<< HEAD
 .newTweet{
   width: 70%;
   margin-top: 5%;
@@ -125,8 +124,9 @@ body {
   color: black;
     }
 .followMe{
-  float:right;
-  margin-right: 15%;
+  float:left;
+  margin-left: -28%;
+  margin-top: -50%;
      }
  .name{
    color: black;
@@ -152,14 +152,14 @@ body {
  }
  .userEmail{
    color: black;
-   margin-left: 2%;
+   margin-left: 1%;
    margin-top: 5%;
    line-height: 100%;
    font-size: 1em;
  }
  .userPhone{
    color: black;
-   margin-left: 2%;
+   margin-left: 1%;
    margin-top: 5%;
    line-height: 100%;
    font-size: 1em;
