@@ -28,7 +28,10 @@
         <user-tweet-component></user-tweet-component>
         <div class="profileContain">
           <div class = "profileTweets">
-        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets">
+        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets" hidden = "showDetail">
+         {{tweet.posted | date:'medium'}} {{tweet.content}}
+        </div>
+        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets" hidden = "!showDetail">
          {{tweet.posted | date:'medium'}} {{tweet.content}}
         </div>
         </div>
@@ -64,7 +67,4 @@
         </ul>
     </div>
 </div>
-</div>
-<div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
- {{tweet.posted | date:'medium'}} {{tweet.content}}
 </div>
