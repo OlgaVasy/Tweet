@@ -7,7 +7,8 @@ angular.module('tweetModule')
   bindings: {
     'changePage': '=',
     'tweet': '=',
-    'profile': '='
+    'profile': '=',
+    'logOut': '='
 
   }
 

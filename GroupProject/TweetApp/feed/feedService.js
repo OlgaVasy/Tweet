@@ -1,5 +1,5 @@
 angular.module('tweetModule')
-.service('feedService', ['$http',function(http) {
+.service('feedService', ['$http','$state',function(http, $state) {
   this.getFeed = (username) => {
     this.user = sessionStorage.getItem('username')
   return http.get('http://localhost:8080/user/users/@'+username+'/feed').then(
@@ -10,5 +10,9 @@ angular.module('tweetModule')
       this.feed = success.data
     }
     )
+  }
+  this.logOut = () => {
+      sessionStorage.clear()
+      $state.go('start')
   }
   }])

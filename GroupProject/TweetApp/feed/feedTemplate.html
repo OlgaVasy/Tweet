@@ -6,7 +6,7 @@
     <li><a ui-sref="userFeed">Show followers</a></li>
     <li><a ui-sref="userFeed">Show people following</a></li>
     <li class="divider"></li>
-    <li><a href="#">Log out</a></li>
+    <li><a ng-click="feedCtrl.feedService.logOut()">Log out</a></li>
   </ul>
   <ui-view></ui-view>
 </div>

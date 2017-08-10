@@ -4,23 +4,24 @@
     Let's Tweet!
   </div>
   <div class = "myFollowing" ng-style="{'background-color': 'transparent'}">
-    <div class="btn-group" >
-      <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{startCtrl.profileService.userProfile.username}}</a>
+    <div class="btn-group" ng-style="startCtrl.startPageService.loggedInButton()">
+      <a class="btn btn-primary" ui-sref="userFeed" >Logged In: {{startCtrl.profileService.userProfile.username}}</a>
       <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a ui-sref="userFeed ({username: startCtrl.profileService.userProfile.username})">Feed Page</a></li>
+        <li><a ui-sref="profile ({username: startCtrl.profileService.userProfile.username})">My profile</a></li>
         <li class="divider"></li>
-        <li><a href="#">Log out</a></li>
+        <li><a ng-click="startCtrl.startPageService.logOut()">Log out</a></li>
       </ul>
   </div>
   <div class="beLoggedIn">
-    <button class="btn-primary" ui-sref="registration" ng-style="startCtrl.startPageService.changePage()">Sign Up {{startCtrl.startPageService.changePage()}}</button>
+    <button class="btn-primary" ui-sref="registration" ng-style="startCtrl.startPageService.changePage()">Sign Up </button>
     <button class="btn-primary" ui-sref="login" ng-style="startCtrl.startPageService.changePage()">Log In</button>
     <ui-view></ui-view>
   </div>
     <div ng-init = "limit = 10">
-  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">">
-    <a class="btn btn-primary" ui-sref= "profile(tweet.author)">{{tweet.author.username}}</a>
+  <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">
+    <a class="btn btn-primary" ui-sref= "profile(tweet.author)"> {{tweet.author.username}}</a>
    {{tweet.posted | date:'medium'}} : {{tweet.content}}
  </div>
  <button class = "showMorebutton" ng-hide="results.length === startCtrl.startPageService.tweets.length"

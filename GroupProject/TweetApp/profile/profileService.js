@@ -1,6 +1,6 @@
 angular.module('tweetModule')
 
-.service('profileService', ['$http',function(http) {
+.service('profileService', ['$http','$state',function(http,$state) {
   this.followedOrNah = 'Follow'
 
   this.getProfile = (username) => {
@@ -15,6 +15,10 @@ angular.module('tweetModule')
       }
 
    );
+  }
+  this.logOut = () => {
+      sessionStorage.clear()
+      $state.go('start')
   }
   this.follow = () => {
     this.test1 = sessionStorage.getItem('password').toString()

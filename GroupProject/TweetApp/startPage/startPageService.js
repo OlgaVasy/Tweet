@@ -8,6 +8,16 @@ this.changePage = () => {
     return {visibility: 'visible'}
   }
 }
+this.logOut = () => {
+    sessionStorage.clear()    
+}
+this.loggedInButton = () => {
+  if(sessionStorage.length === 0){
+    return {visibility: 'hidden'}
+  } else {
+    return {visibility: 'visible'}
+  }
+  }
 
 this.getTweet = (id) =>
    http.get('http://localhost:8080/tweet/tweets/'+id)
