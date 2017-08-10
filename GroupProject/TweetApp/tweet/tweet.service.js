@@ -55,7 +55,8 @@ angular.module('tweetModule')
         this.getTweets()
         $state.go($state.current, {}, {reload: true})
       },
-      (failure) => {}
+      (failure) => {
+      }
     )
   }
   // this.getReposts = (id) => {
