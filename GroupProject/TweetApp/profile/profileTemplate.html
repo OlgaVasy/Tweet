@@ -12,9 +12,10 @@
        </div>
        <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
        </div>
-       <div>
-           <button id = "followUnfollow" class="btn btn-primary" data-toggle="button"
-              ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">Follow</button>
+       <div style="margin-top: 1vh">
+           <button class="btn btn-primary" data-toggle="button"
+              ng-click="profileCtrl.profileService.follow(feedCtrl.feedService.followName)">
+              Follow</button>
          </div>
     </div>
 </div>
