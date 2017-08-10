@@ -1,59 +1,75 @@
 <div class="profileComponent" ng-init ="profileCtrl.profileService.checkFollowing()">
     <div class = "privateInfo">
-    <div class = "photo">
-    <img src= "/image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
-    </div>
-    <div class="name" > {{profileCtrl.profileService.userProfile.profile.firstName}}
-    {{profileCtrl.profileService.userProfile.profile.lastName}} </div>
-    <div class="nickName" > @{{profileCtrl.profileService.userProfile.username}}</div>
-    <div class="contactInfo">
-      <label class="contacts">Contact Information: </label>
-       <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
-       </div>
-       <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
-       </div>
-       <div style="margin-top: 1vh">
-           <button class="btn btn-primary" data-toggle="button"
-              ng-click="profileCtrl.profileService.follow()">
-              {{profileCtrl.profileService.followedOrNah}}</button>
-         </div>
-         <div style="margin-top: 1vh">
-             <button class="btn btn-primary"
-                ng-click="profileCtrl.profileService.getLikes()">
-                Liked Tweets</button>
-           </div>
-    </div>
-</div>
-    <div class = "subpageComponent">
-        <user-tweet-component></user-tweet-component>
-        <div class="profileContain">
-          <div class = "profileTweets">
-        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets" hidden = "showDetail">
-         {{tweet.posted | date:'medium'}} {{tweet.content}}
+      <div class = "photo">
+        <img src= "/image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
+      </div>
+        <div class="name" >   {{profileCtrl.profileService.userProfile.profile.firstName}}
+        {{profileCtrl.profileService.userProfile.profile.lastName}} </div>
+        <div class="nickName" > @{{profileCtrl.profileService.userProfile.username}}</div>
+        <div class="contactInfo">
+             <label class="contacts">Contact Information: </label>
+             <div class="userEmail"> Email: {{profileCtrl.profileService.userProfile.profile.email}}
+             </div>
+             <div class="userPhone">Phone Number: {{profileCtrl.profileService.userProfile.profile.phone}}
+             </div>
+             <div style="margin-top: 1vh">
+                 <button class="btn btn-primary" data-toggle="button"
+                    ng-click="profileCtrl.profileService.follow()">
+                    {{profileCtrl.profileService.followedOrNah}}</button>
+               </div>
+               <div style="margin-top: 1vh">
+                   <button class="btn btn-primary"
+                      ng-click="profileCtrl.profileService.getLikes()">
+                      Liked Tweets</button>
+                 </div>
+     </div>
+  </div>
+ <div class = "subpageComponent">
+   <user-tweet-component></user-tweet-component>
+    <ui-view></ui-view>
+    <div class="profileContain">
+    <div class = "profileTweets">
+   <div ng-init = "limit = 10">
+     <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
+    <div class = "time">{{tweet.posted | date:'medium'}}</div>
+                  <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div></div>
         </div>
-        <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets" hidden = "!showDetail">
-         {{tweet.posted | date:'medium'}} {{tweet.content}}
-        </div>
+        <button class = "showMorebutton" ng-hide="results.length === profileCtrl.profileService.userTweets.length"
+        ng-click="limit = limit +2">show more tweets...</button>
         </div>
         <div class = "followMe">
           <div class = "followImage">
-          <img src= "/image/followMe.gif" alt="default picture" style="width:214px;height:150px;">
+         <img src= "/image/followMe.gif" alt="default picture" style="width:214px;height:150px;">
           </div>
           <div class="followingContainer">
           <div class="followHeading"> Following </div>
             <div ng-repeat= "following in profileCtrl.profileService.userFollowing">
               <a ui-sref="profile ({username: following.username})">{{following.profile.firstName}} {{following.profile.lastName}} @{{following.username}}</a>
-           </div>
+          </div>
                </div>
            <div class="followersContainer">
            <div class="followHeading"> Followers </div>
-             <div ng-repeat= "follower in profileCtrl.profileService.userFollowers">
+            <div ng-repeat= "follower in profileCtrl.profileService.userFollowers">
               <a ui-sref="profile ({username: follower.username})">
             {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}</a>
-
-            </div>
-            </div>
+          </div>
            </div>
+<<<<<<< HEAD
+           </div>
+             </div>
+   </div>
+     <div class = "myLogButton">
+       <div class="btn-group" >
+
+           <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
+           <li class="divider"></li>
+           <li><a href="#">Log out</a></li>
+       </ul>
+       </ul>
+     </div>
+ </div>
+ </div>
+=======
               </div>
   </div>
     <div class = "myLogButton">
@@ -68,3 +84,10 @@
     </div>
 </div>
 </div>
+<<<<<<< HEAD
+=======
+<div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
+ {{tweet.posted | date:'medium'}} {{tweet.content}}
+</div>
+>>>>>>> 58e9bf2effb857f18145f2a23994b5d7d52239b5
+>>>>>>> 1e7c8fbfda4d63782fc4340f989cdfc6ab80af6d

@@ -10,6 +10,7 @@
   </ul>
   <ui-view></ui-view>
 </div>
+<!-- <tweet-element></tweet-element> -->
 <div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
  <div> {{tweet.author.username}} </div>
  <div style = "margin-left: 10vw"> {{tweet.content}} </div>
@@ -18,7 +19,9 @@
  <div class="btn-group btn-group-justified">
   <a class="btn btn-default" ng-click="feedCtrl.tweetService.likeTweet(tweet.id)">like</a>
   <a class="btn btn-default" ng-click="feedCtrl.tweetService.replyTweet(feedCtrl.newTweet, tweet.id)">reply</a>
-  <a class="btn btn-default" ng-click="feedCtrl.tweetService.repostTweet(tweet.id)">repost</a>
+  <a class="btn btn-default"
+    ng-click="feedCtrl.tweetService.repostTweet(tweet.id)">repost </a>
+
+
 </div>
  </div>
-</div>

@@ -122,11 +122,12 @@ angular.module('tweetModule')
 
   this.getUserAllTweets = (username) => {
     http.get('http://localhost:8080/user/users/@'+username+'/tweets').then(
-      (successResponse)=> {
-        this.userTweets = successResponse.data
+      (succesResponse)=> {
+      this.userTweets=successResponse.data
+
       },
       (failureResponse) => {
-      (this.userTweets=failureResponse.data)
+      this.userTweets=failureResponse.data
       }
    );
   }
