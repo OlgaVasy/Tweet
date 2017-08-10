@@ -20,7 +20,7 @@
     <div ng-init = "limit = 10">
       <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets | limitTo: limit as results">
         <a class="btn btn-primary" ui-sref= "profile(tweet.author)"> {{tweet.author.username}}</a>
-           {{tweet.posted | date:'medium'}} : {{tweet.content}}
+           <p>{{tweet.posted | date:'medium'}} : {{tweet.content}}</p>
            <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='startCtrl.newTweet.content'>
            <div class="btn-group btn-group-justified">
             <a class="btn btn-default" ng-click="startCtrl.tweetService.likeTweet(tweet.id)">like</a>
