@@ -14,15 +14,16 @@ angular.module('tweetModule')
 
   this.getFeed = (username) => {
     this.user = sessionStorage.getItem('username')
-  return http.get('http://localhost:8080/user/users/@'+username+'/feed').then(
-    (failure) => {
-      console.log('Could not load feed')
-    },
-    (success) => {
-      this.tweets = success.data
-    }
+    return http.get('http://localhost:8080/user/users/@'+username+'/feed').then(
+      (failure) => {
+        console.log('Could not load feed')
+      },
+      (success) => {
+        this.tweets = success.data
+      }
     )
   }
+
   this.replyTweet = (tweet, id) => {
     tweet.credentials.username = sessionStorage.getItem('username')
     tweet.credentials.password = sessionStorage.getItem('password')
@@ -33,6 +34,7 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
+        $state.go($state.current, {}, {reload: true})
       },
       (failure) => {}
     )
@@ -59,16 +61,6 @@ angular.module('tweetModule')
       }
     )
   }
-  // this.getReposts = (id) => {
-  //   http.get('http://localhost:8080/tweet/tweets/' + id + '/reposts').then(
-  //     (successResponse)=> {
-  //       this.reposts = successResponse.data
-  //     },
-  //     (failureResponse) => {
-  //       this.reposts = failureResponse.data
-  //     }
-  //  )
-  // }
 
   this.postTweet = (tweet) => {
     tweet.credentials.username = sessionStorage.getItem('username')
@@ -80,7 +72,6 @@ angular.module('tweetModule')
     }).then(
       (success) => {
         this.getTweets()
-        // $state.reload('profile')
         $state.go($state.current, {}, {reload: true})
       },
       (failure) => {}
