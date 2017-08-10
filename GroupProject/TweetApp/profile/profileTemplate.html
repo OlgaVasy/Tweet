@@ -30,7 +30,7 @@
     <div class="profileContain">
     <div class = "profileTweets">
    <div ng-init = "limit = 10">
-     <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results">
+     <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.userTweets | limitTo: limit as results" ng-if('visible')>
     <div class = "time">{{tweet.posted | date:'medium'}}</div>
                   <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div>
                   <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='profileCtrl.newTweet.content'>
@@ -40,7 +40,7 @@
                    <a class="btn btn-default" ng-click="profileCtrl.tweetService.repostTweet(tweet.id)">repost</a>
                  </div>
                 </div>
-    <div class="profileSubpageContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
+    <div class="profileLikedTweetsContainer" ng-repeat= "tweet in profileCtrl.profileService.likedTweets">
               {{tweet.posted | date:'medium'}} {{tweet.content}}
       </div>
 

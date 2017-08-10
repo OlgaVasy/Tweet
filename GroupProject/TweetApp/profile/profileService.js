@@ -77,6 +77,7 @@ angular.module('tweetModule')
      },
      (success) => {
        console.log(success.data)
+       //$('profileSubpageComponent').visible = 'false'
        this.likedTweets = success.data
      }
    )
