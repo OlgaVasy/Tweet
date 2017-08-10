@@ -3,7 +3,6 @@ angular.module('tweetModule')
 .service('profileSubpageService', ['$http',function(http) {
 
   this.getUserAllTweets = (username) => {
-    //username = sessionStorage.getItem('username')
     http.get('http://localhost:8080/user/users/@'+username+'/tweets').then(
       (successResponse)=> {
         this.userTweets = successResponse.data
@@ -14,7 +13,6 @@ angular.module('tweetModule')
    );
   }
   this.getFollowing = (username) => {
-    username = sessionStorage.getItem('username')
     http.get('http://localhost:8080/user/users/@'+username+'/following').then(
       (successResponse)=> {
         this.userFollowing = successResponse.data
@@ -25,7 +23,6 @@ angular.module('tweetModule')
    );
   }
   this.getFollowers = (username) => {
-    username = sessionStorage.getItem('username')
     http.get('http://localhost:8080/user/users/@'+username+'/followers').then(
       (successResponse)=> {
         this.userFollowers = successResponse.data

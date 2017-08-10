@@ -1,20 +1,27 @@
 
-<div class="profileContain"
+
+<div class="profileContain">
+  <div class = "profileTweets">
 <div class="profileSubpageContainer" ng-repeat= "tweet in subCtrl.profileSubpageService.userTweets">
  {{tweet.posted | date:'medium'}} {{tweet.content}}
 </div>
- </div>
+</div>
 <div class = "followMe">
-  <div class="followingContainer" > Following
+  <div class = "followImage">
+  <img src= "/image/followMe.gif" alt="default picture" style="width:214px;height:150px;">
+  </div>
+  <div class="followingContainer">
+  <div class="followHeading"> Following </div>
     <div ng-repeat= "following in subCtrl.profileSubpageService.userFollowing">
    {{following.profile.firstName}} {{following.profile.lastName}} @{{following.username}}
-
    </div>
-   <div class="followersContainer" > Followers
+       </div>
+   <div class="followersContainer">
+   <div class="followHeading"> Followers </div>
      <div ng-repeat= "follower in subCtrl.profileSubpageService.userFollowers">
     {{follower.profile.firstName}} {{follower.profile.lastName}} @{{follower.username}}
 
     </div>
     </div>
    </div>
- </div>
+      </div>
