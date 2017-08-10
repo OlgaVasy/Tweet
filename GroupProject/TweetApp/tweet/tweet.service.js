@@ -1,10 +1,6 @@
 angular.module('tweetModule')
 .service('tweetService', ['$http', '$state', function(http, $state) {
 
-  this.getTweet = (id) =>
-    http.get('http://localhost:8080/tweet/tweets/' + id)
-    .then((resp) => { return resp.data })
-
   this.getTweets = () => {
     http.get('http://localhost:8080/tweet/tweets').then(
       (successResponse) => {
@@ -17,13 +13,13 @@ angular.module('tweetModule')
   }
 
   this.getFeed = (username) => {
-    this.user = username
-    return http.get('http://localhost:8080/user/users/@' + username + '/feed').then(
+    this.user = sessionStorage.getItem('username')
+  return http.get('http://localhost:8080/user/users/@'+username+'/feed').then(
     (failure) => {
       console.log('Could not load feed')
     },
     (success) => {
-      this.feed = success.data
+      this.tweets = success.data
     }
     )
   }
@@ -64,13 +60,13 @@ angular.module('tweetModule')
   }
 
   this.getReposts = (id) => {
-    http.get('http://localhost:8080/tweet/tweets/'+id+'/reposts').then(
+    http.get('http://localhost:8080/tweet/tweets/' + id + '/reposts').then(
       (successResponse)=> {
         this.reposts = successResponse.data
       },
       (failureResponse) => {
       }
-   );
+   )
   }
 
   this.postTweet = (tweet) => {
