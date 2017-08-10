@@ -12,7 +12,7 @@
 </div>
 <!-- <tweet-element></tweet-element> -->
 <div class="tweetContainer" ng-repeat= "tweet in feedCtrl.feedService.feed">
- <div> {{tweet.author.username}} </div>
+ <a class="btn btn-primary" ui-sref= "profile(tweet.author)"> {{tweet.author.username}}</a>
  <div style = "margin-left: 10vw"> {{tweet.content}} </div>
  <div> {{tweet.posted | date:'medium'}} </div>
  <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='feedCtrl.newTweet.content'>
