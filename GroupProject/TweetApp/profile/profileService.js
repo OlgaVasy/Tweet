@@ -32,10 +32,7 @@ angular.module('tweetModule')
       },
       (success) => {
         console.log('Following ' + this.followName)
-        this.followedOrNah = 'Follow'
-        //$('folButton').click(function(){
-        //      $('folButton').text('Follow')
-              //  })
+        this.followedOrNah = 'Unfollow'
       }
       )
     } else {
@@ -48,10 +45,7 @@ angular.module('tweetModule')
         },
         (success) => {
           console.log('Unfollowed ' + this.followName)
-          this.followedOrNah = 'Unfollow'
-          //$('folButton').click(function(){
-          //      $('folButton').text('Unfollow')
-          //        })
+          this.followedOrNah = 'Follow'
         }
         )
     }
