@@ -3,13 +3,24 @@
   <div id="heading" class="headline">
     Let's Tweet!
   </div>
+  <div class = "myFollowing" ng-style="{'background-color': 'transparent'}">
+    <div class="btn-group" >
+      <a class="btn btn-primary" ui-sref="userFeed">Logged In: {{profileCtrl.profileService.userProfile.username}}</a>
+      <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Log out</a></li>
+      </ul>
+  </div>
   <div class="beLoggedIn">
-    <a ui-sref="registration">Sign Up</a>
-    <a ui-sref="login">Log In</a>
+    <button class="btn-primary" ui-sref="registration" ng-style="startCtrl.startPageService.changePage()">Sign Up {{startCtrl.startPageService.changePage()}}</button>
+    <button class="btn-primary" ui-sref="login" ng-style="startCtrl.startPageService.changePage()">Log In</button>
     <ui-view></ui-view>
   </div>
   <div class="tweetContainer" ng-repeat= "tweet in startCtrl.startPageService.tweets">
-   {{tweet.posted | date:'medium'}} {{tweet.author.username}}: {{tweet.content}}
+    <a class="btn btn-primary" ui-sref= "profileWithTweets(tweet.author)">{{tweet.author.username}}</a>
+   {{tweet.posted | date:'medium'}} : {{tweet.content}}
    </div>
  </div>
   </div>

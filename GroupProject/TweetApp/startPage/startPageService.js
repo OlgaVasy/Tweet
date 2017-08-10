@@ -1,6 +1,13 @@
 angular.module('tweetModule')
-
 .service('startPageService', ['$http',function(http) {
+
+this.changePage = () => {
+  if (sessionStorage.getItem('username') !== null && sessionStorage.getItem('password') !== null) {
+    return {visibility: 'hidden'}
+  } else {
+    return {visibility: 'visible'}
+  }
+}
 
 this.getTweet = (id) =>
    http.get('http://localhost:8080/tweet/tweets/'+id)
