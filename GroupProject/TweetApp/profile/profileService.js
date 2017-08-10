@@ -1,6 +1,7 @@
 angular.module('tweetModule')
 
 .service('profileService', ['$http',function(http) {
+  this.followedOrNah = 'Follow'
 
   this.getProfile = (username) => {
     this.followName = username
