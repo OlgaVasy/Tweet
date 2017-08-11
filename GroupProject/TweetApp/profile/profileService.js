@@ -39,12 +39,14 @@ angular.module('tweetModule')
     data: updateUser,
     params: {firstName: usering.profile.firstName, lastName: usering.profile.lastName, phone: usering.profile.phone}
   }).then(
-    (success) => {
-      this.viewUpdate = {visibility: 'hidden'}
+    (failureResponse) => {
       console.log('NOOOOOOOOOOOOOOOOO!')
     },
     (successResponse) => {console.log('User has been updated')
     this.viewUpdate = {visibility: 'hidden'}
+    console.log(usering.profile.firstName)
+    console.log(usering.profile.lastName)
+    $state.go($state.current, {}, {reload: true})
   }
   )
 }
