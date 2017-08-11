@@ -12,7 +12,7 @@ angular.module('tweetModule')
         this.userProfile = successResponse.data
       },
       (failureResponse) => {
-        (this.userProfile = failureResponse.data)
+        this.userProfile = failureResponse.data
       }
 
    )
