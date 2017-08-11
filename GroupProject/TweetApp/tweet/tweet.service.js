@@ -12,17 +12,6 @@ angular.module('tweetModule')
     )
   }
 
-  this.getMentions = (id) => {
-      http.get('http://localhost:8080/tweet/tweets/' + id + '/mentions').then(
-        (successResponse) => {
-          this.mentions = successResponse.data
-        },
-        (failureResponse) => {
-          console.log('Abandon ship!')
-        }
-      )
-  }
-
   this.getFeed = (username) => {
     this.user = sessionStorage.getItem('username')
     return http.get('http://localhost:8080/user/users/@' + username + '/feed').then(
@@ -38,7 +27,6 @@ angular.module('tweetModule')
   this.replyTweet = (tweet, id) => {
     tweet.credentials.username = sessionStorage.getItem('username')
     tweet.credentials.password = sessionStorage.getItem('password')
-    tweet.content = tweet.content + 'In Reply to: ' + id
     return http({
       method: 'POST',
       url: 'http://localhost:8080/tweet/tweets/' + id + '/reply',
