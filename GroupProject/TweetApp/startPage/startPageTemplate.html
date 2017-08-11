@@ -1,22 +1,16 @@
 <div>
   <div id="heading" class="headline">
-    Let's Tweet!
+    Let's Tweet!   <img src= "/image/bird.png" alt="default picture" style="width:180px;height:180px;">
   </div>
   <div class = "letsTweet" ng-style="{'background-color': 'transparent'}">
     <div class="beLoggedIn">
-      <div class="btn-group" ng-style="startCtrl.startPageService.loggedInButton()">
-        <a class="btn btn-primary" ui-sref="userFeed" >Logged In: {{startCtrl.profileService.userProfile.username}}</a>
-        <a class="btn btn-primary dropdown-toggle" aria-expanded="false" ui-sref="feedState" data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a ui-sref="userFeed ({username: startCtrl.profileService.userProfile.username})">Feed Page</a></li>
-          <li><a ui-sref="profile ({username: startCtrl.profileService.userProfile.username})">My profile</a></li>
-          <li class="divider"></li>
-          <li><a ng-click="startCtrl.startPageService.logOut()">Log out</a></li>
-        </ul>
-      </div>
-      <div>
-        <button class="btn-primary" ui-sref="registration" ng-style="startCtrl.startPageService.changePage()">Sign Up </button>
-        <button class="btn-primary" ui-sref="login" ng-style="startCtrl.startPageService.changePage()">Log In</button>
+      <div class="logged" ng-style="startCtrl.startPageService.loggedInButton()">
+          <a ui-sref="userFeed ({username: startCtrl.profileService.userProfile.username})">Feed Page |</a>
+          <a ui-sref="profile ({username: startCtrl.profileService.userProfile.username})">My profile |</a>
+          <a ng-click="startCtrl.startPageService.logOut()">Log out</a>
+
+        <a ui-sref="registration" ng-style="startCtrl.startPageService.changePage()">Sign Up |</a>
+        <a ui-sref="login" ng-style="startCtrl.startPageService.changePage()">Log In</a>
         <ui-view></ui-view>
       </div>
     </div>

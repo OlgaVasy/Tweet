@@ -9,20 +9,38 @@ body {
   overflow-x: hidden;
 }
 .headline {
-  width: 100vw;
   padding-top: 0vh;
-  font-size: 8em;
-  font-weight: bolder;
-  font-style: italic;
-  margin-left: 25vw;
+  font-family: "Brush Script MT", cursive;
+	font-size: 6em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 150%;
+  text-align: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
   color: WHITE;
   text-shadow: 5px 5px 4px BLACK;
+  background-color: #4682B4;
+  border-style: solid;
+  border-color: 	#191970;
 }
 .beLoggedIn{
-  margin-left: 75vw;
-  font-size: 2em;
-  font-weight: bolder;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  font-size: 1.5em;
   color: WHITE;
+  background-color: 			#191970;
+
+}
+.logged{
+  margin-left: 5vw;
+  color: WHITE;
+  background-color: #191970;
+  color: WHITE;
+}
+.loggedOut{
+  float: right;
 }
 .profileComponent{
   margin: 5vh 5vw 5vh 5vw;
