@@ -89,7 +89,8 @@
       </div>
       <div class="profileLikedTweetsContainer" ng-repeat= "tweet in profileCtrl.profileService.mentions | limitTo: limit as results"
                                            ng-show = "profileCtrl.profileService.checkShow('mentions')">
-     <div class = "time">{{tweet.posted | date:'medium'}}</div>
+                  <p><a class="goToUser" ui-sref= "profile(tweet.author)"> @{{tweet.author.username}} >> </a></p>
+                 <div class = "time">{{tweet.posted | date:'medium'}}</div>
                    <div class = "message">{{tweet.content}}{{tweet.repostOf.author.username}}</div>
                    <input type="text" class="newTweet" id="inputTweet" placeholder="Reply?" ng-model='profileCtrl.newTweet.content'>
                    <div class="btn-group btn-group-justified">
