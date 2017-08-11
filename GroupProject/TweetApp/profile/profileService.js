@@ -108,6 +108,16 @@ angular.module('tweetModule')
       }
    )
   }
+  this.getMentions = (username) => {
+      http.get('http://localhost:8080/users/@' + username + '/mentions').then(
+        (successResponse) => {
+          this.mentions = successResponse.data
+        },
+        (failureResponse) => {
+          console.log('Abandon ship!')
+        }
+      )
+  }
   this.getFollowing = (username) => {
     http.get('http://localhost:8080/user/users/@' + username + '/following').then(
       (successResponse) => {
