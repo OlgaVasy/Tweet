@@ -1,8 +1,42 @@
+<div class="overcontainer" ng-style='profileCtrl.profileService.viewUpdate'>
+  <div class="updateContainer">
+  <form class="login-form">
+    <fieldset>
+      <legend>Update Profile Information</legend>
+      <div class="login-form-group">
+        <label for="inputFirstname" class="login-input-col1 control-label" ng-style="{'text-indent': '-50px'}">Firstname</label>
+        <div class="login-input-col2">
+          <input type="text" class="login-form-control" id="inputFirstname" placeholder="Firstname" ng-model="user.profile.firstName">
+        </div>
+      </div>
+      <div class="login-form-group">
+        <label for="inputLastname" class="login-input-col1 control-label" ng-style="{'text-indent': '-50px'}">Lastname</label>
+        <div class="login-input-col2">
+          <input type="text" class="login-form-control" id="inputLastname" placeholder="Lastname" ng-model="usering.profile.lastName">
+        </div>
+      </div>
+      <div class="login-form-group">
+        <label for="inputPhone" class="login-input-col1 control-label" ng-style="{'text-indent': '-50px'}">Phone Number</label>
+        <div class="login-input-col2">
+          <input type="text" class="login-form-control" id="inputPhone" placeholder="Phone number" ng-model="usering.profile.phone">
+        </div>
+      </div>
+      <div class="login-form-group">
+        <div class="login-input-col2">
+          <button type="submit" class="login-btn btn-primary" ng-click='profileCtrl.profileService.updateProfile(usering)' >Submit</button>
+          <button type="reset" class="login-btn btn-default">Cancel</button>
+        </div>
+      </div>
+    </div>
+    </fieldset>
+  </form>
+</div>
 <div class="profileComponent" ng-init ="profileCtrl.profileService.checkFollowing()">
     <div class = "privateInfo" style="background-color:rgba(0,0,0,0)">
       <div class = "photo">
         <img src= "image/defaultPhoto.png" alt="default picture" style="width:225px;height:225px;">
       </div>
+      <div class="profileInfo">
         <div class="name" >   {{profileCtrl.profileService.userProfile.profile.firstName}}
         {{profileCtrl.profileService.userProfile.profile.lastName}} </div>
         <div class="nickName" > @{{profileCtrl.profileService.userProfile.username}}</div>
@@ -22,6 +56,7 @@
                       ng-click="profileCtrl.profileService.getLikes()">
                       {{profileCtrl.profileService.likedTweetsButton}}</button>
                  </div>
+               </div>
      </div>
   </div>
  <div class = "subpageComponent" style="background-color:rgba(0,0,0,0)">
