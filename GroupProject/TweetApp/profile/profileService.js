@@ -17,6 +17,9 @@ angular.module('tweetModule')
 
    )
   }
+  this.checkShow = (input) => {
+    return this.shouldShow === input
+  }
   this.logOut = () => {
     sessionStorage.clear()
     $state.go('start')
@@ -64,8 +67,9 @@ angular.module('tweetModule')
   }
 
   this.checkFollowing = () => {
-    this.likedTweetsButton = 'Liked Tweets'
-    this.shouldShow = true
+     this.likedTweetsButton = 'Liked Tweets'
+     this.shouldShow = 'user'
+     this.getMentions(this.username)
     http.get('http://localhost:8080/user/users/@' + this.username + '/following')
      .then(
        (failure) => {
@@ -87,13 +91,20 @@ angular.module('tweetModule')
      (failure) => {
      },
      (success) => {
-       this.shouldShow = !this.shouldShow
-       if (!this.shouldShow) {
-         this.likedTweetsButton = 'User Tweets'
-       } else {
-         this.likedTweetsButton = 'Liked Tweets'
-       }
        this.likedTweets = success.data
+       if (this.shouldShow === 'liked') {
+         this.likedTweetsButton = 'Mentions'
+         this.shouldShow = 'mentions'
+         return
+       } else if (this.shouldShow === 'user') {
+         this.likedTweetsButton = 'Liked Tweets'
+         this.shouldShow = 'liked'
+         return
+       } else if (this.shouldShow === 'mentions') {
+         this.likedTweetsButton = 'User Tweets'
+         this.shouldShow = 'user'
+         return
+       }
      }
    )
   }
@@ -109,12 +120,16 @@ angular.module('tweetModule')
    )
   }
   this.getMentions = (username) => {
-      http.get('http://localhost:8080/users/@' + username + '/mentions').then(
+      http.get('http://localhost:8080/user/users/@' + username + '/mentions').then(
         (successResponse) => {
           this.mentions = successResponse.data
+          console.log(this.mentions)
+          return successResponse.data
         },
         (failureResponse) => {
-          console.log('Abandon ship!')
+          this.mentions = failureResponse.data
+          console.log(this.mentions)
+          return failureResponse.data
         }
       )
   }
