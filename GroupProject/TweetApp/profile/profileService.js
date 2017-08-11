@@ -44,8 +44,6 @@ angular.module('tweetModule')
     },
     (successResponse) => {console.log('User has been updated')
     this.viewUpdate = {visibility: 'hidden'}
-    console.log(usering.profile.firstName)
-    console.log(usering.profile.lastName)
     $state.go($state.current, {}, {reload: true})
   }
   )
