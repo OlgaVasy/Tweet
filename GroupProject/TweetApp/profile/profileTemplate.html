@@ -120,6 +120,9 @@
           <li><a ui-sref="userFeed ({username: profileCtrl.profileService.userProfile.username})">Feed Page</a></li>
           <li><a ui-sref="start ({username: profileCtrl.profileService.userProfile.username})">Start Page</a></li>
           <li><a ng-click="profileCtrl.profileService.goToMyProfile()">Go to my profile</a></li>
+          <li><a ng-click="profileCtrl.profileService.viewUpdate = {visibility:'visible'}"
+                 ng-show = "profileCtrl.profileService.username === profileCtrl.profileService.followName">
+                 Edit my profile</a></li>
           <li class="divider"></li>
           <li><a ng-click="profileCtrl.profileService.logOut()">Log out</a></li>
         </ul>
