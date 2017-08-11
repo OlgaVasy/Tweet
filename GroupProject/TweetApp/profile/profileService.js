@@ -3,6 +3,7 @@ angular.module('tweetModule')
 .service('profileService', ['$http', '$state', function (http, $state) {
   this.followedOrNah = 'Follow'
   this.likedTweetsButton = 'Liked Tweets'
+  this.viewUpdate = {visibility: 'hidden'}
 
   this.getProfile = (username) => {
     this.followName = username
@@ -28,6 +29,28 @@ angular.module('tweetModule')
     this.username = sessionStorage.getItem('username')
     $state.go('profile', {username: this.username})
   }
+  this.updateProfile = (usering) => {
+  let updateUser = {
+    credentials: {
+      password: sessionStorage.getItem('password').toString(),
+      username: sessionStorage.getItem('username').toString()
+    }
+  }
+  return http({
+    method: 'PATCH',
+    url: 'http://localhost:8080/user/users/@' + this.username,
+    data: updateUser,
+    params: {firstName: usering.profile.firstName, lastName: usering.profile.lastName, phone: usering.profile.phone}
+  }).then(
+    (failureResponse) => {
+      console.log('NOOOOOOOOOOOOOOOOO!')
+    },
+    (successResponse) => {console.log('User has been updated')
+    this.viewUpdate = {visibility: 'hidden'}
+    $state.go($state.current, {}, {reload: true})
+  }
+  )
+}
 
   this.follow = () => {
     this.test1 = sessionStorage.getItem('password').toString()
