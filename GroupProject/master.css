@@ -37,10 +37,15 @@ body {
   margin-left: 5vw;
   color: WHITE;
   background-color: #191970;
-  color: WHITE;
 }
-.loggedOut{
-  float: right;
+.goToUser{
+color: black;
+font-size: 1.5em;
+}
+.tweetContent{
+  color: black;
+  font-size: 1.5em;
+  margin-left: 10vw;
 }
 .profileComponent{
   margin: 5vh 5vw 5vh 5vw;
@@ -219,7 +224,7 @@ color: black;
     }
     .message{
       margin-top: 3%;
-      margin-left: 35%;
+      margin-left: 15%;
       color: rgba(0, 0, 102);
     }
  .followMe{
