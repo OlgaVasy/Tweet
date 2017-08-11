@@ -3,6 +3,7 @@ angular.module('tweetModule')
 .service('profileService', ['$http', '$state', function (http, $state) {
   this.followedOrNah = 'Follow'
   this.likedTweetsButton = 'Liked Tweets'
+  this.viewUpdate = {visibility: 'hidden'}
 
   this.getProfile = (username) => {
     this.followName = username
@@ -17,6 +18,9 @@ angular.module('tweetModule')
 
    )
   }
+  this.checkShow = (input) => {
+    return this.shouldShow === input
+  }
   this.logOut = () => {
     sessionStorage.clear()
     $state.go('start')
@@ -25,6 +29,28 @@ angular.module('tweetModule')
     this.username = sessionStorage.getItem('username')
     $state.go('profile', {username: this.username})
   }
+  this.updateProfile = (usering) => {
+  let updateUser = {
+    credentials: {
+      password: sessionStorage.getItem('password').toString(),
+      username: sessionStorage.getItem('username').toString()
+    }
+  }
+  return http({
+    method: 'PATCH',
+    url: 'http://localhost:8080/user/users/@' + this.username,
+    data: updateUser,
+    params: {firstName: usering.profile.firstName, lastName: usering.profile.lastName, phone: usering.profile.phone}
+  }).then(
+    (failureResponse) => {
+      console.log('NOOOOOOOOOOOOOOOOO!')
+    },
+    (successResponse) => {console.log('User has been updated')
+    this.viewUpdate = {visibility: 'hidden'}
+    $state.go($state.current, {}, {reload: true})
+  }
+  )
+}
 
   this.follow = () => {
     this.test1 = sessionStorage.getItem('password').toString()
@@ -64,8 +90,9 @@ angular.module('tweetModule')
   }
 
   this.checkFollowing = () => {
-    this.likedTweetsButton = 'Liked Tweets'
-    this.shouldShow = true
+     this.likedTweetsButton = 'Liked Tweets'
+     this.shouldShow = 'user'
+     this.getMentions(this.username)
     http.get('http://localhost:8080/user/users/@' + this.username + '/following')
      .then(
        (failure) => {
@@ -87,13 +114,20 @@ angular.module('tweetModule')
      (failure) => {
      },
      (success) => {
-       this.shouldShow = !this.shouldShow
-       if (!this.shouldShow) {
-         this.likedTweetsButton = 'User Tweets'
-       } else {
-         this.likedTweetsButton = 'Liked Tweets'
-       }
        this.likedTweets = success.data
+       if (this.shouldShow === 'liked') {
+         this.likedTweetsButton = 'Mentions'
+         this.shouldShow = 'mentions'
+         return
+       } else if (this.shouldShow === 'user') {
+         this.likedTweetsButton = 'Liked Tweets'
+         this.shouldShow = 'liked'
+         return
+       } else if (this.shouldShow === 'mentions') {
+         this.likedTweetsButton = 'User Tweets'
+         this.shouldShow = 'user'
+         return
+       }
      }
    )
   }
@@ -109,12 +143,16 @@ angular.module('tweetModule')
    )
   }
   this.getMentions = (username) => {
-      http.get('http://localhost:8080/users/@' + username + '/mentions').then(
+      http.get('http://localhost:8080/user/users/@' + username + '/mentions').then(
         (successResponse) => {
           this.mentions = successResponse.data
+          console.log(this.mentions)
+          return successResponse.data
         },
         (failureResponse) => {
-          console.log('Abandon ship!')
+          this.mentions = failureResponse.data
+          console.log(this.mentions)
+          return failureResponse.data
         }
       )
   }
